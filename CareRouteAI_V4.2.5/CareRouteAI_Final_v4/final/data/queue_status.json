@@ -1,0 +1,1116 @@
+{
+  "c1": {
+    "clinic_id": "c1",
+    "patients": [
+      {
+        "id": "2ccc2d93",
+        "name": "Sabir Khan",
+        "phone": "9320735975",
+        "specialty": "neurology",
+        "token": 2,
+        "wait_mins": 27,
+        "status": "waiting",
+        "added_at": "2026-06-21T16:05:57.162316",
+        "doctor_summary": "Patient reports ongoing knee pain, constant nocturnal tingling in both feet relieved by massage, and leg weakness."
+      },
+      {
+        "id": "54ab8566",
+        "name": "Sami Khan",
+        "phone": "9594055186",
+        "specialty": "cardiology",
+        "token": 3,
+        "wait_mins": 54,
+        "status": "waiting",
+        "added_at": "2026-06-21T16:36:09.346842",
+        "doctor_summary": "Patient reports acute onset (15 minutes ago) of chest heaviness and a feeling of something stuck, accompanied by continuous burping and feeling of vomiting. Denies shortness of breath or pain radiation."
+      }
+    ],
+    "avg_consult_mins": 27,
+    "next_token": 4
+  },
+  "c2": {
+    "clinic_id": "c2",
+    "patients": [
+      {
+        "id": "2579683f",
+        "name": "Safi Khan",
+        "phone": "9833385975",
+        "gender": "male",
+        "specialty": "urology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-23T19:15:15.402017",
+        "doctor_summary": "Patient reports constant, severe left-sided abdominal pain (7-8/10) with burning sensation during urination. Suggests potential urinary tract or kidney issue.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "mere pet mein dard ho raha hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0928\u092e\u0938\u094d\u0924\u0947! \u092e\u0948\u0902 \u0915\u0947\u092f\u0930\u0930\u0942\u091f \u090f\u0906\u0908 \u0939\u0942\u0901, \u0906\u092a\u0915\u0940 \u092e\u0926\u0926 \u0915\u0947 \u0932\u093f\u090f \u092f\u0939\u093e\u0901 \u0939\u0942\u0901\u0964 \u092e\u0948\u0902 \u0921\u0949\u0915\u094d\u091f\u0930 \u0928\u0939\u0940\u0902 \u0939\u0942\u0901, \u0932\u0947\u0915\u093f\u0928 \u092e\u0948\u0902 \u0906\u092a\u0915\u0947 \u0932\u0915\u094d\u0937\u0923\u094b\u0902 \u0915\u094b \u0938\u092e\u091d\u0928\u0947 \u092e\u0947\u0902 \u0906\u092a\u0915\u0940 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901 \u0924\u093e\u0915\u093f \u0906\u092a\u0915\u094b \u0938\u0939\u0940 \u092e\u0947\u0921\u093f\u0915\u0932 \u0938\u0939\u093e\u092f\u0924\u093e \u092e\u093f\u0932 \u0938\u0915\u0947\u0964\n\n\u0906\u092a \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902 \u0915\u093f \u0906\u092a\u0915\u0947 \u092a\u0947\u091f \u092e\u0947\u0902 \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0915\u093f \u092f\u0939 \u0926\u0930\u094d\u0926 \u0906\u092a\u0915\u0947 \u092a\u0947\u091f \u0915\u0947 \u0915\u093f\u0938 \u0939\u093f\u0938\u094d\u0938\u0947 \u092e\u0947\u0902 \u0939\u094b \u0930\u0939\u093e \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "left side mein"
+          },
+          {
+            "role": "AI",
+            "content": "\u0927\u0928\u094d\u092f\u0935\u093e\u0926, \u092f\u0939 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0964 \u092a\u0947\u091f \u0915\u0947 \u092c\u093e\u0908\u0902 \u0913\u0930 \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u092f\u0939 \u0938\u0941\u0928\u0915\u0930 \u092e\u0941\u091d\u0947 \u0915\u0941\u091b \u0914\u0930 \u092c\u093e\u0924\u0947\u0902 \u091c\u093e\u0928\u0928\u0947 \u0915\u0940 \u091c\u093c\u0930\u0942\u0930\u0924 \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u092f\u0939 \u0926\u0930\u094d\u0926 \u0932\u0917\u093e\u0924\u093e\u0930 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u092f\u093e \u092f\u0939 \u0930\u0941\u0915-\u0930\u0941\u0915 \u0915\u0930 \u0906\u0924\u093e \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "lagatar"
+          },
+          {
+            "role": "AI",
+            "content": "\u0920\u0940\u0915 \u0939\u0948, \u0926\u0930\u094d\u0926 \u0932\u0917\u093e\u0924\u093e\u0930 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 \u092f\u0939 \u0938\u092e\u091d\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0915\u093f \u0906\u092a\u0915\u094b \u0915\u093f\u0938 \u0924\u0930\u0939 \u0915\u0940 \u092e\u0926\u0926 \u0915\u0940 \u091c\u093c\u0930\u0942\u0930\u0924 \u0939\u094b \u0938\u0915\u0924\u0940 \u0939\u0948, \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0915\u093f \u092f\u0939 \u0926\u0930\u094d\u0926 \u0915\u093f\u0924\u0928\u093e \u0924\u0947\u091c\u093c \u0939\u0948? 1 \u0938\u0947 10 \u0915\u0947 \u092a\u0948\u092e\u093e\u0928\u0947 \u092a\u0930, \u091c\u0939\u093e\u0901 1 \u0939\u0932\u094d\u0915\u093e \u0914\u0930 10 \u0938\u092c\u0938\u0947 \u0924\u0947\u091c\u093c \u0926\u0930\u094d\u0926 \u0939\u094b, \u0906\u092a \u0907\u0938\u0947 \u0915\u094d\u092f\u093e \u0930\u0947\u091f\u093f\u0902\u0917 \u0926\u0947\u0902\u0917\u0947?"
+          },
+          {
+            "role": "Patient",
+            "content": "7-8"
+          },
+          {
+            "role": "AI",
+            "content": "\u092f\u0939 \u0938\u0941\u0928\u0915\u0930 \u092e\u0941\u091d\u0947 \u0905\u092b\u093c\u0938\u094b\u0938 \u0939\u0948 \u0915\u093f \u0906\u092a\u0915\u094b \u0907\u0924\u0928\u093e \u0924\u0947\u091c\u093c \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 7-8 \u0915\u0947 \u092a\u0948\u092e\u093e\u0928\u0947 \u092a\u0930 \u0932\u0917\u093e\u0924\u093e\u0930 \u0926\u0930\u094d\u0926 \u0915\u093e\u092b\u0940 \u092a\u0930\u0947\u0936\u093e\u0928\u0940 \u092d\u0930\u093e \u0939\u094b \u0938\u0915\u0924\u093e \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u0906\u092a\u0915\u094b \u092a\u0947\u091f \u0926\u0930\u094d\u0926 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0908 \u0914\u0930 \u0932\u0915\u094d\u0937\u0923 \u092d\u0940 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b \u0930\u0939\u0947 \u0939\u0948\u0902, \u091c\u0948\u0938\u0947 \u092c\u0941\u0916\u093e\u0930, \u0909\u0932\u094d\u091f\u0940, \u0926\u0938\u094d\u0924, \u092f\u093e \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0915\u094b\u0908 \u092a\u0930\u0947\u0936\u093e\u0928\u0940?"
+          },
+          {
+            "role": "Patient",
+            "content": "peshab karte samay thoda ajeeb lagta hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0938\u092e\u091d \u0917\u0908, \u0906\u092a\u0915\u094b \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0925\u094b\u0921\u093c\u0940 \u0905\u091c\u0940\u092c \u0938\u0940 \u0905\u0928\u0941\u092d\u0942\u0924\u093f \u0939\u094b \u0930\u0939\u0940 \u0939\u0948\u0964 \u092f\u0939 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092c\u0939\u0941\u0924 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0906\u092a\u0915\u094b \u091c\u0932\u0928 \u092f\u093e \u0926\u0930\u094d\u0926 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b\u0924\u093e \u0939\u0948, \u092f\u093e \u092b\u093f\u0930 \u092a\u0947\u0936\u093e\u092c \u0915\u093e \u0930\u0902\u0917 \u092f\u093e \u0917\u0902\u0927 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0938\u0947 \u0905\u0932\u0917 \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "ha jalan hoti hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0920\u0940\u0915 \u0939\u0948, \u0906\u092a\u0915\u094b \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u091c\u0932\u0928 \u092d\u0940 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b \u0930\u0939\u0940 \u0939\u0948\u0964 \u092a\u0947\u091f \u0915\u0947 \u092c\u093e\u0908\u0902 \u0913\u0930 \u0924\u0947\u091c\u093c, \u0932\u0917\u093e\u0924\u093e\u0930 \u0926\u0930\u094d\u0926 \u0914\u0930 \u092a\u0947\u0936\u093e\u092c \u092e\u0947\u0902 \u091c\u0932\u0928, \u092f\u0947 \u0932\u0915\u094d\u0937\u0923 \u090f\u0915 \u0938\u093e\u0925 \u0939\u094b\u0928\u0947 \u092a\u0930 \u0921\u0949\u0915\u094d\u091f\u0930 \u0915\u094b \u0926\u093f\u0916\u093e\u0928\u093e \u091c\u093c\u0930\u0942\u0930\u0940 \u0939\u094b \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u092e\u0948\u0902 \u0906\u092a\u0915\u094b \u0938\u0932\u093e\u0939 \u0926\u0942\u0902\u0917\u0940 \u0915\u093f \u0906\u092a \u091c\u0932\u094d\u0926 \u0938\u0947 \u091c\u0932\u094d\u0926 \u0921\u0949\u0915\u094d\u091f\u0930 \u0938\u0947 \u092e\u093f\u0932\u0947\u0902\u0964 \u092f\u0939 \u0915\u093f\u0938\u0940 \u092f\u0942\u0930\u093f\u0928\u0930\u0940 \u091f\u094d\u0930\u0948\u0915\u094d\u091f \u0907\u0928\u094d\u092b\u0947\u0915\u094d\u0936\u0928 (UTI) \u092f\u093e \u0915\u093f\u0921\u0928\u0940 \u0938\u0947 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u092e\u0938\u094d\u092f\u093e \u0915\u093e \u0938\u0902\u0915\u0947\u0924 \u0939\u094b \u0938\u0915\u0924\u093e \u0939\u0948, \u091c\u093f\u0938\u0915\u0947 \u0932\u093f\u090f \u092e\u0947\u0921\u093f\u0915\u0932 \u091c\u093e\u0902\u091a \u0914\u0930 \u0909\u092a\u091a\u093e\u0930 \u0915\u0940 \u0906\u0935\u0936\u094d\u092f\u0915\u0924\u093e \u0939\u094b\u0917\u0940\u0964"
+          }
+        ],
+        "urgency": "URGENT",
+        "primary_concern": "Left-sided abdominal pain with painful urination",
+        "key_symptoms": [
+          "left-sided abdominal pain",
+          "constant pain",
+          "pain level 7-8/10",
+          "dysuria (burning urination)"
+        ],
+        "duration": "unknown (implied recent onset)"
+      },
+      {
+        "id": "47dfbeeb",
+        "name": "Safi Khan",
+        "phone": "9833385975",
+        "gender": "male",
+        "specialty": "urology",
+        "token": 2,
+        "wait_mins": 23,
+        "status": "waiting",
+        "added_at": "2026-06-23T19:16:44.478777",
+        "doctor_summary": "Patient reports constant, severe left-sided abdominal pain (7-8/10) with burning sensation during urination. Suggests potential urinary tract or kidney issue.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "mere pet mein dard ho raha hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0928\u092e\u0938\u094d\u0924\u0947! \u092e\u0948\u0902 \u0915\u0947\u092f\u0930\u0930\u0942\u091f \u090f\u0906\u0908 \u0939\u0942\u0901, \u0906\u092a\u0915\u0940 \u092e\u0926\u0926 \u0915\u0947 \u0932\u093f\u090f \u092f\u0939\u093e\u0901 \u0939\u0942\u0901\u0964 \u092e\u0948\u0902 \u0921\u0949\u0915\u094d\u091f\u0930 \u0928\u0939\u0940\u0902 \u0939\u0942\u0901, \u0932\u0947\u0915\u093f\u0928 \u092e\u0948\u0902 \u0906\u092a\u0915\u0947 \u0932\u0915\u094d\u0937\u0923\u094b\u0902 \u0915\u094b \u0938\u092e\u091d\u0928\u0947 \u092e\u0947\u0902 \u0906\u092a\u0915\u0940 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0942\u0901 \u0924\u093e\u0915\u093f \u0906\u092a\u0915\u094b \u0938\u0939\u0940 \u092e\u0947\u0921\u093f\u0915\u0932 \u0938\u0939\u093e\u092f\u0924\u093e \u092e\u093f\u0932 \u0938\u0915\u0947\u0964\n\n\u0906\u092a \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902 \u0915\u093f \u0906\u092a\u0915\u0947 \u092a\u0947\u091f \u092e\u0947\u0902 \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0915\u093f \u092f\u0939 \u0926\u0930\u094d\u0926 \u0906\u092a\u0915\u0947 \u092a\u0947\u091f \u0915\u0947 \u0915\u093f\u0938 \u0939\u093f\u0938\u094d\u0938\u0947 \u092e\u0947\u0902 \u0939\u094b \u0930\u0939\u093e \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "left side mein"
+          },
+          {
+            "role": "AI",
+            "content": "\u0927\u0928\u094d\u092f\u0935\u093e\u0926, \u092f\u0939 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0964 \u092a\u0947\u091f \u0915\u0947 \u092c\u093e\u0908\u0902 \u0913\u0930 \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u092f\u0939 \u0938\u0941\u0928\u0915\u0930 \u092e\u0941\u091d\u0947 \u0915\u0941\u091b \u0914\u0930 \u092c\u093e\u0924\u0947\u0902 \u091c\u093e\u0928\u0928\u0947 \u0915\u0940 \u091c\u093c\u0930\u0942\u0930\u0924 \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u092f\u0939 \u0926\u0930\u094d\u0926 \u0932\u0917\u093e\u0924\u093e\u0930 \u0939\u094b \u0930\u0939\u093e \u0939\u0948, \u092f\u093e \u092f\u0939 \u0930\u0941\u0915-\u0930\u0941\u0915 \u0915\u0930 \u0906\u0924\u093e \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "lagatar"
+          },
+          {
+            "role": "AI",
+            "content": "\u0920\u0940\u0915 \u0939\u0948, \u0926\u0930\u094d\u0926 \u0932\u0917\u093e\u0924\u093e\u0930 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 \u092f\u0939 \u0938\u092e\u091d\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0915\u093f \u0906\u092a\u0915\u094b \u0915\u093f\u0938 \u0924\u0930\u0939 \u0915\u0940 \u092e\u0926\u0926 \u0915\u0940 \u091c\u093c\u0930\u0942\u0930\u0924 \u0939\u094b \u0938\u0915\u0924\u0940 \u0939\u0948, \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902 \u0915\u093f \u092f\u0939 \u0926\u0930\u094d\u0926 \u0915\u093f\u0924\u0928\u093e \u0924\u0947\u091c\u093c \u0939\u0948? 1 \u0938\u0947 10 \u0915\u0947 \u092a\u0948\u092e\u093e\u0928\u0947 \u092a\u0930, \u091c\u0939\u093e\u0901 1 \u0939\u0932\u094d\u0915\u093e \u0914\u0930 10 \u0938\u092c\u0938\u0947 \u0924\u0947\u091c\u093c \u0926\u0930\u094d\u0926 \u0939\u094b, \u0906\u092a \u0907\u0938\u0947 \u0915\u094d\u092f\u093e \u0930\u0947\u091f\u093f\u0902\u0917 \u0926\u0947\u0902\u0917\u0947?"
+          },
+          {
+            "role": "Patient",
+            "content": "7-8"
+          },
+          {
+            "role": "AI",
+            "content": "\u092f\u0939 \u0938\u0941\u0928\u0915\u0930 \u092e\u0941\u091d\u0947 \u0905\u092b\u093c\u0938\u094b\u0938 \u0939\u0948 \u0915\u093f \u0906\u092a\u0915\u094b \u0907\u0924\u0928\u093e \u0924\u0947\u091c\u093c \u0926\u0930\u094d\u0926 \u0939\u094b \u0930\u0939\u093e \u0939\u0948\u0964 7-8 \u0915\u0947 \u092a\u0948\u092e\u093e\u0928\u0947 \u092a\u0930 \u0932\u0917\u093e\u0924\u093e\u0930 \u0926\u0930\u094d\u0926 \u0915\u093e\u092b\u0940 \u092a\u0930\u0947\u0936\u093e\u0928\u0940 \u092d\u0930\u093e \u0939\u094b \u0938\u0915\u0924\u093e \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u0906\u092a\u0915\u094b \u092a\u0947\u091f \u0926\u0930\u094d\u0926 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0908 \u0914\u0930 \u0932\u0915\u094d\u0937\u0923 \u092d\u0940 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b \u0930\u0939\u0947 \u0939\u0948\u0902, \u091c\u0948\u0938\u0947 \u092c\u0941\u0916\u093e\u0930, \u0909\u0932\u094d\u091f\u0940, \u0926\u0938\u094d\u0924, \u092f\u093e \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0915\u094b\u0908 \u092a\u0930\u0947\u0936\u093e\u0928\u0940?"
+          },
+          {
+            "role": "Patient",
+            "content": "peshab karte samay thoda ajeeb lagta hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0938\u092e\u091d \u0917\u0908, \u0906\u092a\u0915\u094b \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0925\u094b\u0921\u093c\u0940 \u0905\u091c\u0940\u092c \u0938\u0940 \u0905\u0928\u0941\u092d\u0942\u0924\u093f \u0939\u094b \u0930\u0939\u0940 \u0939\u0948\u0964 \u092f\u0939 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092c\u0939\u0941\u0924 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0964\n\n\u0915\u094d\u092f\u093e \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0906\u092a\u0915\u094b \u091c\u0932\u0928 \u092f\u093e \u0926\u0930\u094d\u0926 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b\u0924\u093e \u0939\u0948, \u092f\u093e \u092b\u093f\u0930 \u092a\u0947\u0936\u093e\u092c \u0915\u093e \u0930\u0902\u0917 \u092f\u093e \u0917\u0902\u0927 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0938\u0947 \u0905\u0932\u0917 \u0939\u0948?"
+          },
+          {
+            "role": "Patient",
+            "content": "ha jalan hoti hai"
+          },
+          {
+            "role": "AI",
+            "content": "\u0920\u0940\u0915 \u0939\u0948, \u0906\u092a\u0915\u094b \u092a\u0947\u0936\u093e\u092c \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u091c\u0932\u0928 \u092d\u0940 \u092e\u0939\u0938\u0942\u0938 \u0939\u094b \u0930\u0939\u0940 \u0939\u0948\u0964 \u092a\u0947\u091f \u0915\u0947 \u092c\u093e\u0908\u0902 \u0913\u0930 \u0924\u0947\u091c\u093c, \u0932\u0917\u093e\u0924\u093e\u0930 \u0926\u0930\u094d\u0926 \u0914\u0930 \u092a\u0947\u0936\u093e\u092c \u092e\u0947\u0902 \u091c\u0932\u0928, \u092f\u0947 \u0932\u0915\u094d\u0937\u0923 \u090f\u0915 \u0938\u093e\u0925 \u0939\u094b\u0928\u0947 \u092a\u0930 \u0921\u0949\u0915\u094d\u091f\u0930 \u0915\u094b \u0926\u093f\u0916\u093e\u0928\u093e \u091c\u093c\u0930\u0942\u0930\u0940 \u0939\u094b \u091c\u093e\u0924\u093e \u0939\u0948\u0964\n\n\u092e\u0948\u0902 \u0906\u092a\u0915\u094b \u0938\u0932\u093e\u0939 \u0926\u0942\u0902\u0917\u0940 \u0915\u093f \u0906\u092a \u091c\u0932\u094d\u0926 \u0938\u0947 \u091c\u0932\u094d\u0926 \u0921\u0949\u0915\u094d\u091f\u0930 \u0938\u0947 \u092e\u093f\u0932\u0947\u0902\u0964 \u092f\u0939 \u0915\u093f\u0938\u0940 \u092f\u0942\u0930\u093f\u0928\u0930\u0940 \u091f\u094d\u0930\u0948\u0915\u094d\u091f \u0907\u0928\u094d\u092b\u0947\u0915\u094d\u0936\u0928 (UTI) \u092f\u093e \u0915\u093f\u0921\u0928\u0940 \u0938\u0947 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u092e\u0938\u094d\u092f\u093e \u0915\u093e \u0938\u0902\u0915\u0947\u0924 \u0939\u094b \u0938\u0915\u0924\u093e \u0939\u0948, \u091c\u093f\u0938\u0915\u0947 \u0932\u093f\u090f \u092e\u0947\u0921\u093f\u0915\u0932 \u091c\u093e\u0902\u091a \u0914\u0930 \u0909\u092a\u091a\u093e\u0930 \u0915\u0940 \u0906\u0935\u0936\u094d\u092f\u0915\u0924\u093e \u0939\u094b\u0917\u0940\u0964"
+          }
+        ],
+        "urgency": "URGENT",
+        "primary_concern": "Left-sided abdominal pain with painful urination",
+        "key_symptoms": [
+          "left-sided abdominal pain",
+          "constant pain",
+          "pain level 7-8/10",
+          "dysuria (burning urination)"
+        ],
+        "duration": "unknown (implied recent onset)"
+      }
+    ],
+    "avg_consult_mins": 23,
+    "next_token": 3
+  },
+  "c3": {
+    "clinic_id": "c3",
+    "patients": [
+      {
+        "id": "778f6f72",
+        "name": "Sakina",
+        "phone": "9833385975",
+        "gender": "female",
+        "specialty": "ophthalmology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-07-12T00:52:29.770366",
+        "doctor_summary": "Patient reports constant blurry vision, specifically difficulty seeing distant objects, with no other associated symptoms like pain or headache.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i can\"t far object properly or you can say i have blurry vision"
+          },
+          {
+            "role": "AI",
+            "content": "Hello! I understand you're experiencing blurry vision and difficulty seeing distant objects clearly.\n\nSince when have you noticed this? Is it constant, or does it come and go?"
+          },
+          {
+            "role": "Patient",
+            "content": "yes it is constant and ican't read hoarding which are far away"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. So, the blurry vision has been constant, and you're having trouble reading distant signs.\n\nAre you experiencing any other symptoms along with the blurry vision, such as headache, eye pain, redness, or sensitivity to light?"
+          },
+          {
+            "role": "Patient",
+            "content": "no"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know. So, it's just the constant blurry vision for distant objects, without any other symptoms like pain or headache.\n\nThis sounds like something an eye specialist should definitely check. It's important to get your eyes examined to understand why this is happening and if you might need corrective lenses or other treatment."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Blurry distance vision",
+        "key_symptoms": [
+          "blurry vision",
+          "difficulty seeing far objects"
+        ],
+        "duration": "constant (unspecified onset)"
+      },
+      {
+        "id": "239a22a7",
+        "name": "Sakina",
+        "phone": "9833385975",
+        "gender": "female",
+        "specialty": "ophthalmology",
+        "token": 2,
+        "wait_mins": 30,
+        "status": "waiting",
+        "added_at": "2026-07-12T00:52:30.938864",
+        "doctor_summary": "Patient reports constant blurry vision, specifically difficulty seeing distant objects, with no other associated symptoms like pain or headache.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i can\"t far object properly or you can say i have blurry vision"
+          },
+          {
+            "role": "AI",
+            "content": "Hello! I understand you're experiencing blurry vision and difficulty seeing distant objects clearly.\n\nSince when have you noticed this? Is it constant, or does it come and go?"
+          },
+          {
+            "role": "Patient",
+            "content": "yes it is constant and ican't read hoarding which are far away"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. So, the blurry vision has been constant, and you're having trouble reading distant signs.\n\nAre you experiencing any other symptoms along with the blurry vision, such as headache, eye pain, redness, or sensitivity to light?"
+          },
+          {
+            "role": "Patient",
+            "content": "no"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know. So, it's just the constant blurry vision for distant objects, without any other symptoms like pain or headache.\n\nThis sounds like something an eye specialist should definitely check. It's important to get your eyes examined to understand why this is happening and if you might need corrective lenses or other treatment."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Blurry distance vision",
+        "key_symptoms": [
+          "blurry vision",
+          "difficulty seeing far objects"
+        ],
+        "duration": "constant (unspecified onset)"
+      }
+    ],
+    "avg_consult_mins": 30,
+    "next_token": 3
+  },
+  "c4": {
+    "clinic_id": "c4",
+    "patients": [
+      {
+        "id": "34a5037d",
+        "name": "Sami",
+        "phone": "9594055186",
+        "specialty": "generalPractice",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-21T17:01:17.138458",
+        "doctor_summary": "Patient reports fever, cold symptoms, and moderate body pain starting yesterday. No specific details on fever temperature or breathing difficulty."
+      },
+      {
+        "id": "5e17ac0e",
+        "name": "Sami",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "generalPractice",
+        "token": 2,
+        "wait_mins": 22,
+        "status": "waiting",
+        "added_at": "2026-06-22T20:12:20.773582",
+        "doctor_summary": "Patient reports headache, cold, fever, running nose, and occasional body aches, chills, or sweating, starting yesterday. Denies other specific symptoms like nausea, vomiting, or pain behind the eyes.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "having head ache with cold , fever and running nose"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there, I understand you're feeling unwell with a headache, cold, fever, and a running nose. I'm here to help you figure out the best next steps, though please remember I'm not a doctor.\n\nCould you tell me a little more about your fever? How high would you say it is, and how long have you been experiencing it?"
+          },
+          {
+            "role": "Patient",
+            "content": "since yesterday"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know the fever started yesterday. That helps.\n\nTo understand a bit more, are you experiencing any body aches, chills, or sweating along with your fever and other symptoms?"
+          },
+          {
+            "role": "Patient",
+            "content": "sometimes"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for that information. So, you're having a headache, cold, fever, running nose, and sometimes body aches, chills, or sweating, all starting yesterday.\n\nAre you experiencing any other symptoms, such as nausea, vomiting, or pain behind your eyes?"
+          },
+          {
+            "role": "Patient",
+            "content": "nope"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. So, to summarize, you're experiencing a headache, cold, fever, running nose, and sometimes body aches, chills, or sweating, all of which started yesterday. You're not having any nausea, vomiting, or pain behind your eyes.\n\nBased on the information you've provided, it sounds like you might be dealing with a common viral illness. While I'm not a doctor, I can recommend the best next steps for you."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Acute febrile illness with respiratory symptoms",
+        "key_symptoms": [
+          "headache",
+          "fever",
+          "running nose",
+          "cold",
+          "body aches",
+          "chills",
+          "sweating"
+        ],
+        "duration": "1 day"
+      }
+    ],
+    "avg_consult_mins": 22,
+    "next_token": 3
+  },
+  "c5": {
+    "clinic_id": "c5",
+    "patients": [
+      {
+        "id": "eee33f1b",
+        "name": "SK",
+        "phone": "9594055186",
+        "specialty": "generalPractice",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-20T17:46:07.717059"
+      },
+      {
+        "id": "4af4b667",
+        "name": "Sami",
+        "phone": "9594055186",
+        "specialty": "generalPractice",
+        "token": 2,
+        "wait_mins": 18,
+        "status": "waiting",
+        "added_at": "2026-06-20T20:19:03.647931",
+        "doctor_summary": "Patient reports runny nose, cough, fatigue, and a low-grade fever since yesterday, consistent with a common cold."
+      }
+    ],
+    "avg_consult_mins": 18,
+    "next_token": 3
+  },
+  "c6": {
+    "clinic_id": "c6",
+    "patients": [
+      {
+        "id": "5ce28e85",
+        "name": "Sabir Khan",
+        "phone": "9320735975",
+        "specialty": "neurology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-20T17:51:59.286715"
+      },
+      {
+        "id": "b449a1da",
+        "name": "Sabir Khan",
+        "phone": "9320735975",
+        "gender": "male",
+        "specialty": "generalPractice",
+        "token": 2,
+        "wait_mins": 25,
+        "status": "waiting",
+        "added_at": "2026-06-22T21:44:23.460374",
+        "doctor_summary": "Patient reports fever and left-sided abdominal pain, accompanied by nausea, vomiting, and changes in bowel movements.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i am having fever and pain in my left side of abdomen"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I understand you're experiencing a fever and pain on your left side of the abdomen. I'm not a doctor, but I'm here to help you figure out the best next steps for medical care.\n\nCould you tell me a bit more about your fever? For example, when did it start, and have you noticed any other symptoms like nausea, vomiting, or changes in your bowel movements?"
+          },
+          {
+            "role": "Patient",
+            "content": "yes"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying that you've noticed other symptoms. To help me understand better, could you please tell me which of these you're experiencing: nausea, vomiting, or any changes in your bowel movements (like diarrhea or constipation)?"
+          },
+          {
+            "role": "Patient",
+            "content": "all of the above"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for sharing that you're experiencing all of those symptoms: nausea, vomiting, and changes in your bowel movements, along with the fever and left-sided abdominal pain. This gives us a clearer picture.\n\nGiven these symptoms, it would be best to have a doctor evaluate you to understand the cause and ensure you get the right care. I'm not a doctor, but based on the information you've provided, here's my recommendation:"
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Fever and left-sided abdominal pain with gastrointestinal symptoms",
+        "key_symptoms": [
+          "fever",
+          "left-sided abdominal pain",
+          "nausea",
+          "vomiting",
+          "altered bowel movements"
+        ],
+        "duration": "recent onset (implied)"
+      },
+      {
+        "id": "dc2ad42f",
+        "name": "Sabir Khan",
+        "phone": "9320735975",
+        "gender": "male",
+        "specialty": "generalPractice",
+        "token": 3,
+        "wait_mins": 50,
+        "status": "waiting",
+        "added_at": "2026-06-22T21:44:41.818156",
+        "doctor_summary": "Patient reports fever and left-sided abdominal pain, accompanied by nausea, vomiting, and changes in bowel movements.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i am having fever and pain in my left side of abdomen"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I understand you're experiencing a fever and pain on your left side of the abdomen. I'm not a doctor, but I'm here to help you figure out the best next steps for medical care.\n\nCould you tell me a bit more about your fever? For example, when did it start, and have you noticed any other symptoms like nausea, vomiting, or changes in your bowel movements?"
+          },
+          {
+            "role": "Patient",
+            "content": "yes"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying that you've noticed other symptoms. To help me understand better, could you please tell me which of these you're experiencing: nausea, vomiting, or any changes in your bowel movements (like diarrhea or constipation)?"
+          },
+          {
+            "role": "Patient",
+            "content": "all of the above"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for sharing that you're experiencing all of those symptoms: nausea, vomiting, and changes in your bowel movements, along with the fever and left-sided abdominal pain. This gives us a clearer picture.\n\nGiven these symptoms, it would be best to have a doctor evaluate you to understand the cause and ensure you get the right care. I'm not a doctor, but based on the information you've provided, here's my recommendation:"
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Fever and left-sided abdominal pain with gastrointestinal symptoms",
+        "key_symptoms": [
+          "fever",
+          "left-sided abdominal pain",
+          "nausea",
+          "vomiting",
+          "altered bowel movements"
+        ],
+        "duration": "recent onset (implied)"
+      }
+    ],
+    "avg_consult_mins": 25,
+    "next_token": 4
+  },
+  "c7": {
+    "clinic_id": "c7",
+    "patients": [
+      {
+        "id": "fba552d3",
+        "name": "Shanky",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "emergency",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-07-10T22:48:49.462987",
+        "doctor_summary": "Patient reports acute onset of abdominal pain (7/10), loose motion, vomiting, and severe weakness to the point of being unable to walk, since morning. This requires immediate medical attention.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "mujhe pet mein darad ho raha hai , aur loose motion aur vomiting bhi hai"
+          },
+          {
+            "role": "AI",
+            "content": "Namaste! Mujhe sunkar afsos hua ki aapko pet mein dard, loose motion aur ulti ho rahi hai.\n\nYeh sab kab se ho raha hai? Aur aapko kitna dard ho raha hai, 1 se 10 mein bata sakte hain? (1 matlab kam, 10 matlab bahut zyada)."
+          },
+          {
+            "role": "Patient",
+            "content": "yah saab subah se hao raha hai , 7"
+          },
+          {
+            "role": "AI",
+            "content": "Theek hai, subah se ho raha hai aur dard 7/10 hai.\n\nKya aapko bukhar bhi lag raha hai, ya koi aur takleef jaise thakaan ya kamzori?"
+          },
+          {
+            "role": "Patient",
+            "content": "kamzori bhtt hai , mein khud sey chal bhi nhi paa raha hu"
+          },
+          {
+            "role": "AI",
+            "content": "Theek hai, aapko bahut kamzori lag rahi hai aur aap chal bhi nahi paa rahe hain. Pet dard, loose motion aur ulti ke saath itni kamzori chinta ki baat hai.\n\nAapko turant doctor ko dikhana chahiye. Yeh dehydration ya kisi aur serious infection ki wajah se ho sakta hai. Kripya bina der kiye emergency help ke liye call karein ya nazdeeki hospital jaayen."
+          }
+        ],
+        "urgency": "EMERGENCY",
+        "primary_concern": "Acute gastroenteritis with severe weakness/dehydration",
+        "key_symptoms": [
+          "abdominal pain",
+          "loose motion",
+          "vomiting",
+          "severe weakness",
+          "inability to walk"
+        ],
+        "duration": "since morning"
+      }
+    ],
+    "avg_consult_mins": 25,
+    "next_token": 2
+  },
+  "c8": {
+    "clinic_id": "c8",
+    "patients": [
+      {
+        "id": "a5730384",
+        "name": "shyam",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "gastroenterology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-23T21:09:28.496912",
+        "doctor_summary": "Patient reports intense cramping stomach pain followed by vomiting and an inability to pass stool.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "having stomach pain followed by vomiting and felling of throwing out"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I'm sorry to hear you're feeling unwell with stomach pain and vomiting. I'm not a doctor, but I'm here to help guide you to the right care.\n\nCould you please describe the stomach pain a little more? For example, is it a burning sensation, a cramping pain, or something else?"
+          },
+          {
+            "role": "Patient",
+            "content": "cramping one but with intensity"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying, an intense cramping pain sounds very uncomfortable.\n\nHave you noticed any fever, or any blood in your vomit or stools?"
+          },
+          {
+            "role": "Patient",
+            "content": "no but having problem with the stool"
+          },
+          {
+            "role": "AI",
+            "content": "I understand you're having some issues with your stool. Could you please tell me a bit more about what kind of problem you're experiencing? For example, is it diarrhea, constipation, or a change in color or consistency?"
+          },
+          {
+            "role": "Patient",
+            "content": "i am not able to pas the stool"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. So, to summarize, you're experiencing intense cramping stomach pain, vomiting, and now you're unable to pass stool. This combination of symptoms, especially the inability to pass stool along with vomiting and intense pain, suggests a need for prompt medical attention.\n\nI'm not a doctor, but based on the information you've provided, I would recommend you see a doctor soon."
+          }
+        ],
+        "urgency": "URGENT",
+        "primary_concern": "Acute abdominal pain with vomiting and inability to pass stool",
+        "key_symptoms": [
+          "intense cramping stomach pain",
+          "vomiting",
+          "inability to pass stool"
+        ],
+        "duration": "Unspecified, acute onset implied"
+      },
+      {
+        "id": "d03d067c",
+        "name": "Sami Khan",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "ent",
+        "token": 2,
+        "wait_mins": 27,
+        "status": "waiting",
+        "added_at": "2026-07-27T20:48:53.920964",
+        "doctor_summary": "Patient reports burning sensation in the throat and painful swallowing, without fever, body aches, or cough.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "I am having burning sensation in my throat and I am having problem to swallow"
+          },
+          {
+            "role": "AI",
+            "content": "I understand you're having a burning sensation in your throat and difficulty swallowing. That sounds uncomfortable.\n\nSince when have you been experiencing this? Is it painful when you swallow?"
+          },
+          {
+            "role": "Patient",
+            "content": "Yes"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for confirming. Do you also have a fever, or any other symptoms like body aches or cough?"
+          },
+          {
+            "role": "Patient",
+            "content": "No"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. Since you're experiencing a burning sensation and painful swallowing without other symptoms like fever or cough, it sounds like a localized throat issue.\n\nIt's important to get this checked to ensure you get the right advice for relief and to rule out any underlying causes. While I am not a doctor, based on the information you've provided, I would recommend seeing a doctor soon."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Throat discomfort and painful swallowing",
+        "key_symptoms": [
+          "burning throat",
+          "painful swallowing"
+        ],
+        "duration": "Not specified"
+      }
+    ],
+    "avg_consult_mins": 27,
+    "next_token": 3
+  },
+  "c9": {
+    "clinic_id": "c9",
+    "patients": [
+      {
+        "id": "b1bf1157",
+        "name": "june",
+        "phone": "9594055186",
+        "gender": "female",
+        "specialty": "gastroenterology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-29T14:46:33.785912",
+        "doctor_summary": "Patient reports stomach burning rated 7/10 since last night, with occasional vomiting. No blood in vomit or stools.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "pet mein jalan"
+          },
+          {
+            "role": "AI",
+            "content": "Namaste! Aapko pet mein jalan ho rahi hai, sunkar afsos hua.\n\nYeh jalan kab se ho rahi hai?"
+          },
+          {
+            "role": "Patient",
+            "content": "kal raat sey"
+          },
+          {
+            "role": "AI",
+            "content": "Okay, since last night.\n\nHow would you rate this burning sensation on a scale of 1 to 10, where 1 is mild and 10 is the worst pain imaginable?"
+          },
+          {
+            "role": "Patient",
+            "content": "7"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know.\n\nAre you experiencing any other symptoms along with this burning, like nausea, vomiting, or any changes in your stools?"
+          },
+          {
+            "role": "Patient",
+            "content": "vo,iting kabh kabhi"
+          },
+          {
+            "role": "AI",
+            "content": "Okay, vomiting sometimes.\n\nJab aapko vomiting hoti hai, toh usmein blood ya coffee-like material dikhta hai kya? Aur aapke stools ka colour kaisa hai, normal hai ya black ya tar-like?"
+          },
+          {
+            "role": "Patient",
+            "content": "normal"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. It's good that there's no blood in your vomit or any unusual color in your stools.\n\nBased on your symptoms \u2013 the burning sensation in your stomach"
+          },
+          {
+            "role": "Patient",
+            "content": "ha"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for confirming.\n\nBased on your symptoms of a burning sensation in your stomach since last night, rated 7 out of 10, and occasional vomiting without any blood or unusual stool color, it seems like you should see a doctor soon."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Stomach burning and occasional vomiting",
+        "key_symptoms": [
+          "stomach burning",
+          "occasional vomiting",
+          "pain 7/10"
+        ],
+        "duration": "since last night"
+      },
+      {
+        "id": "3e6621dd",
+        "name": "xyz",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "orthopedics",
+        "token": 2,
+        "wait_mins": 20,
+        "status": "waiting",
+        "added_at": "2026-07-12T20:42:13.165149",
+        "doctor_summary": "Patient reports severe pain and swelling in the right foot's toe after falling while playing football. Needs urgent evaluation for potential sprain or fracture.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "mere pair mein bohot darad hai , mein football khelte waqt gir gaya tha isliye"
+          },
+          {
+            "role": "AI",
+            "content": "Achha, aap football khelte waqt gir gaye the. Mujhe maaf karna yeh sunkar. Aapke pair mein exactly kahan dard ho raha hai? Aur 1 se 10 mein kitna dard hai, jahan 1 sabse kam aur 10 sabse zyada?"
+          },
+          {
+            "role": "Patient",
+            "content": "8"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know the pain level. Where exactly in your leg does it hurt? Is it your ankle, knee, thigh, or somewhere else?"
+          },
+          {
+            "role": "Patient",
+            "content": "meri ungli mein seedhe pair ki"
+          },
+          {
+            "role": "AI",
+            "content": "Achha, aapki seedhe pair ki ungli mein dard hai. Kya wahan koi sujan (swelling) hai, ya rang badal gaya hai (bruising)? Aur kya aap us ungli ko hila pa rahe hain?"
+          },
+          {
+            "role": "Patient",
+            "content": "ha sujan bhtt hai .... darad bhht ho raha hai"
+          },
+          {
+            "role": "AI",
+            "content": "Theek hai, mujhe samajh aa gaya ki aapki ungli mein bahut dard aur sujan hai, aur yeh football khelte waqt girne se hua hai. Yeh sunkar mujhe afsos hai."
+          }
+        ],
+        "urgency": "URGENT",
+        "primary_concern": "Foot/Toe injury after fall",
+        "key_symptoms": [
+          "severe pain (8/10)",
+          "swelling",
+          "history of fall during football"
+        ],
+        "duration": "acute (since fall)"
+      }
+    ],
+    "avg_consult_mins": 20,
+    "next_token": 3
+  },
+  "c11": {
+    "clinic_id": "c11",
+    "patients": [
+      {
+        "id": "1c53b0ac",
+        "name": "june",
+        "phone": "9594055186",
+        "gender": "female",
+        "specialty": "generalPractice",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-06-29T15:04:00.210328",
+        "doctor_summary": "Patient reports weakness, fever, headache (7/10), and nausea since yesterday morning. No temperature reading available.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "mujhe kamzori lag rahi hai aur bukhar , sir dard bhi hai"
+          },
+          {
+            "role": "AI",
+            "content": "Namaste! Aapko kamzori, bukhar aur sir dard ho raha hai, yeh sunkar mujhe afsos hai.\n\nYeh sab kab se ho raha hai? Aur kya aapne apna temperature check kiya hai?"
+          },
+          {
+            "role": "Patient",
+            "content": "kal subah sey , nhi"
+          },
+          {
+            "role": "AI",
+            "content": "Okay, so you've been feeling weak, feverish, and have a headache since yesterday morning.\n\nCan you tell me how severe the headache is on a scale of 1 to 10, where 1 is mild and 10 is the worst pain ever? Also, does anything make it feel better or worse?"
+          },
+          {
+            "role": "Patient",
+            "content": "7"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for sharing that the headache is a 7 out of 10.\n\nAre you experiencing any other symptoms like nausea, vomiting, or sensitivity to light or sound?"
+          },
+          {
+            "role": "Patient",
+            "content": "nausea"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know you're also feeling nauseous.\n\nGiven your symptoms of weakness, fever, a headache that's a 7/10, and nausea, it would be best to see a doctor soon to understand what's causing them."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Acute onset of fever, headache, and nausea",
+        "key_symptoms": [
+          "weakness",
+          "fever",
+          "headache",
+          "nausea"
+        ],
+        "duration": "since yesterday morning"
+      },
+      {
+        "id": "962c1712",
+        "name": "sk",
+        "phone": "",
+        "gender": "male",
+        "specialty": "generalPractice",
+        "token": 2,
+        "wait_mins": 31,
+        "status": "waiting",
+        "added_at": "2026-07-14T23:46:48.871857",
+        "doctor_summary": "Patient reports fever, cold, and cough since this morning. No difficulty breathing or other severe symptoms mentioned.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i am having fever with cold/cough"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I understand you're feeling unwell with a fever, cold, and cough.\n\nCould you please tell me since when you've been experiencing these symptoms? Also, are you having any difficulty breathing?"
+          },
+          {
+            "role": "Patient",
+            "content": "morning"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know it started this morning.\n\nAre you experiencing any difficulty breathing, or have you checked your temperature?"
+          },
+          {
+            "role": "Patient",
+            "content": "no i din't"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for that information. So, to confirm, you started feeling these symptoms this morning, and you haven't checked your temperature or noticed any difficulty breathing.\n\nAre you experiencing any other symptoms, such as body aches, sore throat, or a headache?"
+          }
+        ],
+        "urgency": "NON-URGENT",
+        "primary_concern": "Common cold/viral infection",
+        "key_symptoms": [
+          "fever",
+          "cold",
+          "cough"
+        ],
+        "duration": "less than 1 day"
+      }
+    ],
+    "avg_consult_mins": 31,
+    "next_token": 3
+  },
+  "c12": {
+    "clinic_id": "c12",
+    "patients": [
+      {
+        "id": "b0e81e5e",
+        "name": "suii",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "ent",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-07-23T21:22:00.933254",
+        "doctor_summary": "Patient reports severe throat pain (8/10) and difficulty swallowing since this morning.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "having pain in my throat"
+          },
+          {
+            "role": "AI",
+            "content": "I understand you're experiencing throat pain.\n\nCan you tell me if you also have any difficulty swallowing, or if it hurts more when you swallow?"
+          },
+          {
+            "role": "Patient",
+            "content": "yess"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know.\n\nHow long have you been having this throat pain and difficulty swallowing?"
+          },
+          {
+            "role": "Patient",
+            "content": "since morning"
+          },
+          {
+            "role": "AI",
+            "content": "Since morning, I see.\n\nOn a scale of 1 to 10, with 1 being very mild and 10 being the worst pain imaginable, how would you rate your throat pain right now?"
+          },
+          {
+            "role": "Patient",
+            "content": "8"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for sharing that. An 8 out of 10 pain is quite severe.\n\nGiven the intensity of your throat pain and difficulty swallowing that started this morning, it would be best to have this checked by a doctor soon."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Severe throat pain and difficulty swallowing",
+        "key_symptoms": [
+          "throat pain",
+          "difficulty swallowing",
+          "pain 8/10"
+        ],
+        "duration": "since morning"
+      },
+      {
+        "id": "94cf139d",
+        "name": "suii",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "ent",
+        "token": 2,
+        "wait_mins": 19,
+        "status": "waiting",
+        "added_at": "2026-07-23T21:22:16.812861",
+        "doctor_summary": "Patient reports severe throat pain (8/10) and difficulty swallowing since this morning.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "having pain in my throat"
+          },
+          {
+            "role": "AI",
+            "content": "I understand you're experiencing throat pain.\n\nCan you tell me if you also have any difficulty swallowing, or if it hurts more when you swallow?"
+          },
+          {
+            "role": "Patient",
+            "content": "yess"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know.\n\nHow long have you been having this throat pain and difficulty swallowing?"
+          },
+          {
+            "role": "Patient",
+            "content": "since morning"
+          },
+          {
+            "role": "AI",
+            "content": "Since morning, I see.\n\nOn a scale of 1 to 10, with 1 being very mild and 10 being the worst pain imaginable, how would you rate your throat pain right now?"
+          },
+          {
+            "role": "Patient",
+            "content": "8"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for sharing that. An 8 out of 10 pain is quite severe.\n\nGiven the intensity of your throat pain and difficulty swallowing that started this morning, it would be best to have this checked by a doctor soon."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Severe throat pain and difficulty swallowing",
+        "key_symptoms": [
+          "throat pain",
+          "difficulty swallowing",
+          "pain 8/10"
+        ],
+        "duration": "since morning"
+      }
+    ],
+    "avg_consult_mins": 19,
+    "next_token": 3
+  },
+  "c25": {
+    "clinic_id": "c25",
+    "patients": [
+      {
+        "id": "8b354f72",
+        "name": "Suiiii",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "orthopedics",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-07-24T23:04:37.376282",
+        "doctor_summary": "Patient reports right-sided neck pain, rated 6/10, which started yesterday and is worse with movement and stretching, possibly related to gym activity. It is advisable to see a doctor today or tomorrow to get it checked.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "im having pain in my neck i think its due to my GYM"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I understand you're having pain in your neck.\n\nCould you please tell me exactly where in your neck the pain is located? And when did this pain start?"
+          },
+          {
+            "role": "Patient",
+            "content": "on rightside , and its from yesterday"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know it's on the right side and started yesterday.\n\nOn a scale of 1 to 10, with 1 being very mild and 10 being the worst pain imaginable, how would you rate your neck pain?"
+          },
+          {
+            "role": "Patient",
+            "content": "6 it pains while movement and stretching"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for that information. It sounds like the pain is quite noticeable, especially with movement."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Neck pain, possibly muscle strain",
+        "key_symptoms": [
+          "right-sided neck pain",
+          "pain with movement",
+          "pain with stretching",
+          "onset yesterday"
+        ],
+        "duration": "1 day"
+      }
+    ],
+    "avg_consult_mins": 24,
+    "next_token": 2
+  },
+  "c14": {
+    "clinic_id": "c14",
+    "patients": [
+      {
+        "id": "ebf80053",
+        "name": "suiiii",
+        "phone": "9594055186",
+        "gender": "male",
+        "specialty": "ophthalmology",
+        "token": 1,
+        "wait_mins": 0,
+        "status": "waiting",
+        "added_at": "2026-07-25T21:10:08.643256",
+        "doctor_summary": "Patient reports acute onset of eye pain, itchiness, and watery eyes since morning.",
+        "conversation_log": [
+          {
+            "role": "Patient",
+            "content": "i am having pain in myeyes and they are very itchy"
+          },
+          {
+            "role": "AI",
+            "content": "Hello there. I understand you're having pain and itchiness in your eyes. That sounds uncomfortable.\n\nSince when have you been experiencing this eye pain and itchiness?"
+          },
+          {
+            "role": "Patient",
+            "content": "sunce morning"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for letting me know. Are you experiencing any changes in your vision, like blurriness, or any discharge from your eyes?"
+          },
+          {
+            "role": "Patient",
+            "content": "my eyes being so watery"
+          },
+          {
+            "role": "AI",
+            "content": "Thank you for clarifying. So, you have eye pain, itchiness, and watery eyes, all starting this morning.\n\nI'm not a doctor, but based on the symptoms you've described, it sounds like you should get your eyes checked by a medical professional."
+          }
+        ],
+        "urgency": "SEMI-URGENT",
+        "primary_concern": "Acute eye discomfort",
+        "key_symptoms": [
+          "eye pain",
+          "itchy eyes",
+          "watery eyes"
+        ],
+        "duration": "since morning"
+      }
+    ],
+    "avg_consult_mins": 23,
+    "next_token": 2
+  }
+}

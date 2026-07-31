@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block title %}Analytics — CareRouteAI{% endblock %}
+{% block content %}
+<div class="analytics-wrap">
+
+  <div class="analytics-header">
+    <div>
+      <h2 style="font-size:20px;font-weight:900;">Analytics Dashboard</h2>
+      <p style="color:var(--slate);font-size:13px;margin-top:2px;">Live triage metrics, specialty trends, urgency distribution.</p>
+    </div>
+    <div class="analytics-header-actions">
+      <a href="/admin" class="btn-secondary" style="font-size:12px;padding:7px 13px;">← Admin</a>
+      <a href="/admin/analytics/download" class="btn-secondary" style="font-size:12px;padding:7px 13px;">📥 Export JSON</a>
+      <button onclick="loadAnalytics()" class="btn-primary" style="font-size:12px;padding:7px 13px;">🔄 Refresh</button>
+    </div>
+  </div>
+
+  <!-- KPI row -->
+  <div class="analytics-kpi-grid" id="kpiRow">
+    <div class="analytics-kpi"><div class="analytics-kpi-icon">⏳</div><div class="analytics-kpi-label">Loading…</div></div>
+  </div>
+
+  <!-- Charts grid -->
+  <div class="analytics-grid" id="chartsGrid">
+    <div class="analytics-panel" style="grid-column:1/-1;color:var(--slate);text-align:center;padding:30px;">Fetching analytics data…</div>
+  </div>
+
+</div>
+
+<script>
+function esc(str) { const d=document.createElement("div");d.textContent=str==null?"":String(str);return d.innerHTML; }
+
+const URGENCY_COLOR = { EMERGENCY:"#E8344A", URGENT:"#E67E22", "SEMI-URGENT":"#F5A623", "NON-URGENT":"#27AE60" };
+const SPECIALTY_COLOR = "#00C4A1";
+
+function barRow(label, count, maxCount, color="#00C4A1") {
+  const pct = maxCount > 0 ? Math.round((count/maxCount)*100) : 0;
+  return `
+  <div class="chart-row">
+    <div class="chart-row-label" title="${esc(label)}">${esc(label)}</div>
+    <div class="chart-row-bar-wrap">
+      <div class="chart-row-bar" style="width:${pct}%;background:${color};"></div>
+    </div>
+    <div class="chart-row-count">${count}</div>
+  </div>`;
+}
+
+function formatSpecialty(s) {
+  return (s||"").replace(/([A-Z])/g," $1").replace(/^./,c=>c.toUpperCase()).trim() || s;
+}
+
+async function loadAnalytics() {
+  try {
+    const res  = await fetch("/api/admin/analytics");
+    const data = await res.json();
+
+    // ── KPI Row ───────────────────────────────────────────
+    const kpis = [
+      { icon:"🧑‍⚕️", label:"Total Triages",   value: data.total_triages,  sub:"All time" },
+      { icon:"📅", label:"Total Bookings",  value: data.total_bookings, sub:"Appointments booked" },
+      { icon:"📈", label:"Booking Rate",    value: data.booking_rate+"%", sub:"Triage → appointment" },
+      { icon:"🌐", label:"Languages Used",  value: Object.keys(data.language_usage||{}).length, sub:"en / hi / mr" },
+    ];
+    document.getElementById("kpiRow").innerHTML = kpis.map(k=>`
+      <div class="analytics-kpi">
+        <div class="analytics-kpi-icon">${k.icon}</div>
+        <div class="analytics-kpi-label">${esc(k.label)}</div>
+        <div class="analytics-kpi-value">${esc(String(k.value))}</div>
+        <div class="analytics-kpi-sub">${esc(k.sub)}</div>
+      </div>`).join("");
+
+    // ── Prepare chart data ────────────────────────────────
+    const specialties = data.top_specialties || [];
+    const urgencies   = Object.entries(data.urgency_distribution || {});
+    const conditions  = data.top_conditions || [];
+    const languages   = Object.entries(data.language_usage || {});
+    const recent      = data.recent_triages || [];
+
+    const maxSpec = specialties.length ? specialties[0][1] : 1;
+    const maxCond = conditions.length  ? conditions[0][1]  : 1;
+    const maxLang = languages.length   ? Math.max(...languages.map(([,v])=>v)) : 1;
+
+    const langNames = { en:"English 🌐", hi:"हिंदी 🇮🇳", mr:"मराठी 🟠" };
+
+    // Urgency donut (simple pill list)
+    const urgencyHtml = urgencies.length
+      ? urgencies.map(([u, cnt]) => `
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
+            <span class="urgency-chip" style="background:${URGENCY_COLOR[u]||"#94A3B8"}20;color:${URGENCY_COLOR[u]||"#94A3B8"};">
+              ${u}
+            </span>
+            <span style="font-weight:800;font-size:14px;">${cnt}</span>
+          </div>`).join("")
+      : `<div style="color:var(--slate);font-size:13px;">No data yet.</div>`;
+
+    // Recent triages
+    const recentHtml = recent.length
+      ? recent.slice().reverse().map(t => {
+          const dotColor = URGENCY_COLOR[t.urgency] || "#94A3B8";
+          return `
+          <div class="recent-triage-row">
+            <div class="recent-dot" style="background:${dotColor};"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13px;font-weight:600;">${esc(formatSpecialty(t.specialty))}</div>
+              <div style="font-size:11px;color:var(--slate);">${esc(t.urgency)} · ${esc(t.language||"en")}</div>
+            </div>
+            <div style="font-size:11px;color:var(--slate-lt);white-space:nowrap;">${esc(t.timestamp)}</div>
+          </div>`;}).join("")
+      : `<div style="color:var(--slate);font-size:13px;padding:10px 0;">No triages recorded yet.</div>`;
+
+    document.getElementById("chartsGrid").innerHTML = `
+
+      <!-- Specialties -->
+      <div class="analytics-panel">
+        <div class="analytics-panel-title">🩺 Top Specialties</div>
+        ${specialties.length
+          ? specialties.map(([s,c])=>barRow(formatSpecialty(s),c,maxSpec,SPECIALTY_COLOR)).join("")
+          : `<div style="color:var(--slate);font-size:13px;">No data yet.</div>`}
+      </div>
+
+      <!-- Urgency -->
+      <div class="analytics-panel">
+        <div class="analytics-panel-title">🚦 Urgency Distribution</div>
+        ${urgencyHtml}
+      </div>
+
+      <!-- Conditions -->
+      <div class="analytics-panel">
+        <div class="analytics-panel-title">🔬 Top Predicted Conditions</div>
+        ${conditions.length
+          ? conditions.map(([c,n])=>barRow(c,n,maxCond,"#6366F1")).join("")
+          : `<div style="color:var(--slate);font-size:13px;">No predictions recorded yet.</div>`}
+      </div>
+
+      <!-- Language usage -->
+      <div class="analytics-panel">
+        <div class="analytics-panel-title">🌐 Language Usage</div>
+        ${languages.length
+          ? languages.map(([l,c])=>barRow(langNames[l]||l,c,maxLang,"#F5A623")).join("")
+          : `<div style="color:var(--slate);font-size:13px;">No data yet.</div>`}
+      </div>
+
+      <!-- Recent triages -->
+      <div class="analytics-panel analytics-panel-full">
+        <div class="analytics-panel-title">🕐 Recent Triages <span style="font-size:11px;font-weight:400;color:var(--slate);">(latest 5)</span></div>
+        ${recentHtml}
+      </div>
+    `;
+
+  } catch(err) {
+    document.getElementById("chartsGrid").innerHTML =
+      `<div class="analytics-panel" style="grid-column:1/-1;color:var(--red);padding:24px;">
+        Failed to load analytics: ${esc(String(err))}. Make sure you're logged in as admin.
+      </div>`;
+  }
+}
+
+loadAnalytics();
+// Auto-refresh every 30 seconds
+setInterval(loadAnalytics, 30000);
+</script>
+{% endblock %}

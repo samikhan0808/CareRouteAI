@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block title %}Admin — CareRouteAI{% endblock %}
+{% block content %}
+<div class="admin-wrap">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+    <div>
+      <h2 style="font-size:20px;font-weight:900;">Admin Dashboard</h2>
+      <p style="font-size:12px;color:var(--slate);margin-top:2px;">Live queue management · Patient triage summary</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="/admin/analytics" class="btn-secondary" style="font-size:12px;padding:7px 13px;">📊 Analytics</a>
+      <button onclick="refreshAll()" class="btn-primary" style="font-size:12px;padding:7px 13px;">🔄 Refresh</button>
+      <a href="/admin/logout" class="btn-secondary" style="font-size:12px;padding:7px 13px;color:var(--red);">Logout</a>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="admin-stats" id="adminStats">
+    <div class="admin-stat-card"><div class="admin-stat-icon">⏳</div><div class="admin-stat-label">Loading</div></div>
+  </div>
+
+  <!-- Clinic tabs -->
+  <div class="clinic-tabs" id="clinicTabs"></div>
+
+  <!-- Queue panel -->
+  <div class="queue-panel" id="queuePanel">
+    <div style="color:var(--slate);text-align:center;padding:24px;">Select a clinic tab above.</div>
+  </div>
+
+</div>
+
+<script>
+let allQueues   = [];
+let activeClinic = null;
+
+function esc(str){ const d=document.createElement("div");d.textContent=str==null?"":String(str);return d.innerHTML; }
+
+const URGENCY_COLOR = { EMERGENCY:"#E8344A", URGENT:"#E67E22", "SEMI-URGENT":"#F5A623", "NON-URGENT":"#27AE60" };
+
+async function refreshAll() {
+  try {
+    const res = await fetch("/api/admin/queues");
+    allQueues  = await res.json();
+    renderStats();
+    renderTabs();
+    if (activeClinic) renderQueue(activeClinic);
+    else if (allQueues.length) { activeClinic = allQueues[0].clinic_id; renderQueue(activeClinic); }
+  } catch(e) {
+    console.error("Refresh failed:", e);
+  }
+}
+
+function renderStats() {
+  const totalWaiting   = allQueues.reduce((a,q)=>a+(q.waiting_count||0),0);
+  const totalInConsult = allQueues.reduce((a,q)=>a+(q.in_consult||0),0);
+  const totalClinics   = allQueues.length;
+  const totalPatients  = allQueues.reduce((a,q)=>a+(q.queue_length||0),0);
+
+  document.getElementById("adminStats").innerHTML = [
+    { icon:"🏥", label:"Clinics",       value: totalClinics },
+    { icon:"👥", label:"Total Patients", value: totalPatients },
+    { icon:"⏳", label:"Waiting",        value: totalWaiting },
+    { icon:"🩺", label:"In Consult",     value: totalInConsult },
+  ].map(s=>`
+    <div class="admin-stat-card">
+      <div class="admin-stat-icon">${s.icon}</div>
+      <div class="admin-stat-label">${s.label}</div>
+      <div class="admin-stat-value">${s.value}</div>
+    </div>`).join("");
+}
+
+function renderTabs() {
+  document.getElementById("clinicTabs").innerHTML = allQueues.map(q=>`
+    <button class="clinic-tab ${q.clinic_id===activeClinic?"active":""}"
+      onclick="selectClinic('${esc(q.clinic_id)}')">
+      ${esc(q.clinic_name)} <span style="opacity:.7;font-weight:400;">(${q.waiting_count||0})</span>
+    </button>`).join("");
+}
+
+function selectClinic(id) {
+  activeClinic = id;
+  renderTabs();
+  renderQueue(id);
+}
+
+function renderQueue(clinicId) {
+  const q = allQueues.find(x=>x.clinic_id===clinicId);
+  if (!q) return;
+
+  const patients = q.patients || [];
+  const waiting  = patients.filter(p=>p.status==="waiting");
+  const active   = patients.filter(p=>p.status==="in_consultation");
+
+  const patientRows = patients.length
+    ? patients.map(p => {
+        const isActive  = p.status === "in_consultation";
+        const uColor    = URGENCY_COLOR[p.urgency] || "#64748B";
+        const urgLabel  = p.urgency ? `<span style="background:${uColor}18;color:${uColor};border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700;">${esc(p.urgency)}</span>` : "";
+        const specLabel = p.specialty ? `<span style="font-size:10px;color:var(--slate);">${esc(p.specialty)}</span>` : "";
+        return `
+        <div class="patient-row ${isActive?"active":""}">
+          <div class="patient-token ${isActive?"active":" "}">${esc(String(p.token||"-"))}</div>
+          <div class="patient-info">
+            <div class="patient-name">${esc(p.name||"Patient")}</div>
+            <div class="patient-meta" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+              ${urgLabel}${specLabel}
+              ${p.primary_concern ? `<span style="font-size:10px;color:var(--slate);">· ${esc(p.primary_concern)}</span>` : ""}
+            </div>
+          </div>
+          <div class="row-actions">
+            ${!isActive ? `<button class="btn-small btn-call" onclick="callNext('${esc(clinicId)}')">📢 Call</button>` : ""}
+            <button class="btn-small btn-complete" onclick="markComplete('${esc(clinicId)}','${esc(p.id)}')">✓ Done</button>
+            <button class="btn-small btn-remove" onclick="removePatient('${esc(clinicId)}','${esc(p.id)}')">✕</button>
+          </div>
+        </div>`; }).join("")
+    : `<div style="text-align:center;color:var(--slate);padding:24px;font-size:13px;">Queue is empty.</div>`;
+
+  document.getElementById("queuePanel").innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+      <div>
+        <div style="font-weight:800;font-size:15px;">${esc(q.clinic_name)}</div>
+        <div style="font-size:12px;color:var(--slate);margin-top:2px;">
+          ${active.length} in consultation · ${waiting.length} waiting · ~${q.avg_wait_mins||15} min avg
+        </div>
+      </div>
+      <button class="btn-primary" style="font-size:12px;padding:8px 14px;" onclick="callNext('${esc(clinicId)}')">📢 Call Next</button>
+    </div>
+
+    <div class="add-patient-bar">
+      <input id="addName" placeholder="Patient name…" />
+      <input id="addPhone" placeholder="Phone (optional)" />
+      <button class="btn-primary" style="font-size:13px;padding:9px 14px;white-space:nowrap;" onclick="addPatient('${esc(clinicId)}')">+ Add</button>
+    </div>
+
+    ${patientRows}
+  `;
+}
+
+async function callNext(clinicId) {
+  await fetch("/api/admin/call_next", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({clinic_id:clinicId}) });
+  refreshAll();
+}
+async function markComplete(clinicId, patientId) {
+  await fetch("/api/admin/mark_complete", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({clinic_id:clinicId,patient_id:patientId}) });
+  refreshAll();
+}
+async function removePatient(clinicId, patientId) {
+  if (!confirm("Remove this patient from the queue?")) return;
+  await fetch("/api/admin/remove_patient", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({clinic_id:clinicId,patient_id:patientId}) });
+  refreshAll();
+}
+async function addPatient(clinicId) {
+  const name  = document.getElementById("addName").value.trim();
+  const phone = document.getElementById("addPhone").value.trim();
+  if (!name) { alert("Please enter a patient name."); return; }
+  await fetch("/api/admin/add_patient", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({clinic_id:clinicId,name,phone}) });
+  document.getElementById("addName").value  = "";
+  document.getElementById("addPhone").value = "";
+  refreshAll();
+}
+
+refreshAll();
+setInterval(refreshAll, 15000);
+</script>
+{% endblock %}

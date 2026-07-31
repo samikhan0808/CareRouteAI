@@ -1,0 +1,21 @@
+2026-07-24 23:03:44,952 | WARNING | Error occurred while ranking clinics: 504 The request timed out. Please try again.
+2026-07-24 23:05:01,468 | INFO | Fetching queue status for clinic: c25
+2026-07-24 23:05:04,306 | INFO | Fetching queue status for clinic: c25
+2026-07-25 20:43:17,534 | WARNING | Error occurred while ranking clinics: 504 The request timed out. Please try again.
+2026-07-25 21:09:20,041 | WARNING | Error occurred while ranking clinics: 504 The request timed out. Please try again.
+2026-07-27 20:47:24,459 | WARNING | Error occurred while ranking clinics: 504 The request timed out. Please try again.
+2026-07-27 20:49:23,326 | INFO | Fetching queue status for clinic: c8
+2026-07-27 20:49:38,530 | INFO | Fetching queue status for clinic: c8
+2026-07-27 21:00:05,455 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:05] code 400, message Bad request version ('\x06\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x17\x00\x00\x00\x12\x00\x00\x00')
+2026-07-27 21:00:05,456 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:05] code 400, message Bad request version ('rÒV1+T\x12ë&\x94\x15¢RåmFfa\x7f+ËC3©H\x97Ë\x82w¿')
+2026-07-27 21:00:05,457 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:05] code 400, message Bad request version ('z»d')
+2026-07-27 21:00:06,140 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:06] code 400, message Bad request syntax ('\x16\x03\x01\x06æ\x01\x00\x06â\x03\x03»\x9bÓx7Ä')
+2026-07-27 21:00:06,140 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:06] code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x069**\x00\x00\x00')
+2026-07-27 21:00:06,141 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:06] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06¦\x01\x00\x06¢\x03\x03ZÉ¾Â\x89\x1b@\x98½-')
+2026-07-27 21:00:08,713 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:08] code 400, message Bad request version ('\x9c\x95_g³mD~v¹É\x94l/NYJ\x8eÚT"d@gÓ»|\x16\x96¤\x17')
+2026-07-27 21:00:08,714 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:08] code 400, message Bad request version ('&b\x81\x14\x03uÁ')
+2026-07-27 21:00:11,118 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:11] code 400, message Bad request version ('°éG\x01ä,æ+N\x9fÃ,ÁðD')
+2026-07-27 21:00:11,128 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:11] code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x99')
+2026-07-27 21:00:11,129 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:11] code 400, message Bad request version ('£\x7fè_,s°Ó¬\x17\x9cíÎñÁ')
+2026-07-27 21:00:11,194 | ERROR | 192.168.1.25 - - [27/Jul/2026 21:00:11] code 400, message Bad request version (':RkIªPb')
+2026-07-28 18:36:39,716 | INFO | Overpass returned 226 elements at 5000m radius

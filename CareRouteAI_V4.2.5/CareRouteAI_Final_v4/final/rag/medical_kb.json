@@ -1,0 +1,394 @@
+[
+  {
+    "id": "kb001",
+    "specialty": "cardiology",
+    "condition": "Angina / Coronary Artery Disease",
+    "symptoms": "Chest tightness or pressure, pain spreading to arm/jaw/back, shortness of breath during exertion, fatigue, dizziness",
+    "guidance": "Often triggered by physical activity or stress and relieved by rest. Risk factors include high blood pressure, diabetes, smoking, family history. Requires ECG and cardiac evaluation. If pain is severe, sudden, or at rest, treat as emergency."
+  },
+  {
+    "id": "kb002",
+    "specialty": "cardiology",
+    "condition": "Arrhythmia (Irregular Heartbeat)",
+    "symptoms": "Palpitations, fluttering or pounding heart, dizziness, fatigue, shortness of breath, fainting",
+    "guidance": "Can range from harmless to life-threatening. An ECG or Holter monitor is typically needed. Fainting episodes warrant urgent evaluation."
+  },
+  {
+    "id": "kb003",
+    "specialty": "cardiology",
+    "condition": "Hypertension (High Blood Pressure)",
+    "symptoms": "Often asymptomatic; may include headache, blurred vision, chest discomfort, nosebleeds in severe cases",
+    "guidance": "Silent condition usually found on routine checkup. Severe hypertension with headache or vision changes needs urgent care."
+  },
+  {
+    "id": "kb004",
+    "specialty": "pulmonology",
+    "condition": "Asthma",
+    "symptoms": "Wheezing, shortness of breath, chest tightness, coughing especially at night or with exercise",
+    "guidance": "Triggered by allergens, exercise, cold air, or stress. Inhaler use should be assessed. Severe attacks with blue lips need emergency care."
+  },
+  {
+    "id": "kb005",
+    "specialty": "pulmonology",
+    "condition": "Pneumonia",
+    "symptoms": "Cough with phlegm, fever, chills, difficulty breathing, chest pain when breathing or coughing, fatigue",
+    "guidance": "Bacterial or viral lung infection. Requires chest X-ray and possibly antibiotics. High fever with breathing difficulty is urgent."
+  },
+  {
+    "id": "kb006",
+    "specialty": "pulmonology",
+    "condition": "COPD (Chronic Obstructive Pulmonary Disease)",
+    "symptoms": "Chronic cough, mucus production, wheezing, breathlessness with activity, chest tightness",
+    "guidance": "Commonly linked to smoking history. Progressive condition needing pulmonary function tests and long-term management."
+  },
+  {
+    "id": "kb007",
+    "specialty": "neurology",
+    "condition": "Migraine",
+    "symptoms": "Throbbing one-sided headache, nausea, sensitivity to light and sound, visual aura, can last hours to days",
+    "guidance": "Common neurological condition. Sudden 'worst headache of life' or headache with confusion/weakness needs emergency evaluation for stroke."
+  },
+  {
+    "id": "kb008",
+    "specialty": "neurology",
+    "condition": "Peripheral Neuropathy",
+    "symptoms": "Numbness, tingling, burning sensation in hands or feet, muscle weakness, sensitivity to touch",
+    "guidance": "Often related to diabetes, vitamin deficiency, or nerve compression. Needs neurological exam and possibly nerve conduction studies."
+  },
+  {
+    "id": "kb009",
+    "specialty": "neurology",
+    "condition": "Epilepsy / Seizure Disorder",
+    "symptoms": "Recurrent seizures, loss of consciousness, convulsions, staring spells, confusion after episodes",
+    "guidance": "Requires EEG and neurology workup. An active seizure happening now is a medical emergency."
+  },
+  {
+    "id": "kb010",
+    "specialty": "gastroenterology",
+    "condition": "GERD (Acid Reflux)",
+    "symptoms": "Heartburn, regurgitation, chest discomfort after eating, sour taste, worse when lying down",
+    "guidance": "Common and usually manageable with diet changes and medication. Persistent chest pain should be distinguished from cardiac causes."
+  },
+  {
+    "id": "kb011",
+    "specialty": "gastroenterology",
+    "condition": "Gastritis / Peptic Ulcer",
+    "symptoms": "Burning stomach pain, bloating, nausea, vomiting, loss of appetite, dark stools if bleeding",
+    "guidance": "Often caused by H. pylori infection or NSAID use. Black/bloody stools or vomiting blood needs urgent care."
+  },
+  {
+    "id": "kb012",
+    "specialty": "gastroenterology",
+    "condition": "Irritable Bowel Syndrome (IBS)",
+    "symptoms": "Abdominal cramping, bloating, alternating diarrhea and constipation, relief after bowel movement",
+    "guidance": "Functional gut disorder, diagnosis of exclusion. Chronic symptoms warrant evaluation to rule out other conditions."
+  },
+  {
+    "id": "kb013",
+    "specialty": "orthopedics",
+    "condition": "Lower Back Pain / Lumbar Strain",
+    "symptoms": "Dull or sharp pain in lower back, stiffness, muscle spasm, pain radiating to leg if nerve involved",
+    "guidance": "Most cases improve with rest, physiotherapy. Numbness, weakness, or loss of bladder control needs urgent evaluation."
+  },
+  {
+    "id": "kb014",
+    "specialty": "orthopedics",
+    "condition": "Osteoarthritis",
+    "symptoms": "Joint pain and stiffness, especially knees/hips, worse with activity, swelling, reduced range of motion",
+    "guidance": "Degenerative joint condition common with age. Managed with physiotherapy, pain relief, sometimes surgery."
+  },
+  {
+    "id": "kb015",
+    "specialty": "orthopedics",
+    "condition": "Fracture / Sprain",
+    "symptoms": "Sudden pain after injury, swelling, bruising, inability to bear weight or move the joint normally",
+    "guidance": "Needs X-ray to confirm. Visible deformity or inability to move the limb requires urgent imaging."
+  },
+  {
+    "id": "kb016",
+    "specialty": "dermatology",
+    "condition": "Eczema (Atopic Dermatitis)",
+    "symptoms": "Itchy, red, inflamed skin patches, dryness, sometimes oozing or crusting",
+    "guidance": "Chronic inflammatory skin condition. Managed with moisturizers and topical treatments."
+  },
+  {
+    "id": "kb017",
+    "specialty": "dermatology",
+    "condition": "Fungal Skin Infection",
+    "symptoms": "Itchy red rash with defined edges, scaling, sometimes ring-shaped pattern",
+    "guidance": "Common and treatable with antifungal creams. Spreading rapidly or affecting large areas needs evaluation."
+  },
+  {
+    "id": "kb018",
+    "specialty": "generalPractice",
+    "condition": "Common Cold / Viral Upper Respiratory Infection",
+    "symptoms": "Runny nose, sore throat, mild cough, sneezing, low-grade fever, fatigue",
+    "guidance": "Usually self-limiting, resolves in 7-10 days. Supportive care recommended."
+  },
+  {
+    "id": "kb019",
+    "specialty": "generalPractice",
+    "condition": "Influenza (Flu)",
+    "symptoms": "Sudden fever, body aches, chills, fatigue, dry cough, headache",
+    "guidance": "More severe than common cold. Antivirals may help if started early. High-risk patients should seek care promptly."
+  },
+  {
+    "id": "kb020",
+    "specialty": "ent",
+    "condition": "Sinusitis",
+    "symptoms": "Facial pain or pressure, nasal congestion, thick nasal discharge, reduced sense of smell, headache",
+    "guidance": "Can be viral or bacterial. Persistent symptoms beyond 10 days may need antibiotics."
+  },
+  {
+    "id": "kb021",
+    "specialty": "ent",
+    "condition": "Otitis Media (Ear Infection)",
+    "symptoms": "Ear pain, hearing difficulty, fluid drainage, fever, irritability in children",
+    "guidance": "Common in children. Severe pain with high fever needs prompt evaluation."
+  },
+  {
+    "id": "kb022",
+    "specialty": "ophthalmology",
+    "condition": "Conjunctivitis (Pink Eye)",
+    "symptoms": "Red eye, itching, discharge, gritty feeling, watery or crusty eyelids",
+    "guidance": "Often viral or bacterial, highly contagious. Vision loss or severe pain needs urgent ophthalmology referral."
+  },
+  {
+    "id": "kb023",
+    "specialty": "psychiatry",
+    "condition": "Generalized Anxiety Disorder",
+    "symptoms": "Excessive worry, restlessness, difficulty concentrating, muscle tension, sleep disturbance",
+    "guidance": "Common mental health condition, very treatable with therapy and/or medication. Persistent symptoms affecting daily life warrant evaluation."
+  },
+  {
+    "id": "kb024",
+    "specialty": "psychiatry",
+    "condition": "Depression",
+    "symptoms": "Persistent sadness, loss of interest, fatigue, sleep or appetite changes, difficulty concentrating",
+    "guidance": "Treatable with therapy and/or medication. Any mention of self-harm or suicidal thoughts requires immediate crisis support."
+  },
+  {
+    "id": "kb025",
+    "specialty": "generalPractice",
+    "condition": "Urinary Tract Infection (UTI)",
+    "symptoms": "Burning urination, frequent urge to urinate, cloudy or strong-smelling urine, pelvic discomfort",
+    "guidance": "Common, especially in women. Fever and back pain may indicate kidney involvement and need urgent care."
+  },
+  {
+    "id": "kb026",
+    "specialty": "generalPractice",
+    "condition": "Dengue Fever",
+    "symptoms": "Sudden high fever, severe headache, pain behind the eyes, joint and muscle pain, rash, nausea, low platelet count",
+    "guidance": "Mosquito-borne viral infection, common in India especially during/after monsoon. Needs CBC/platelet monitoring. Bleeding gums, persistent vomiting, severe abdominal pain, or drop in platelets requires urgent hospital care (risk of dengue hemorrhagic fever)."
+  },
+  {
+    "id": "kb027",
+    "specialty": "generalPractice",
+    "condition": "Malaria",
+    "symptoms": "Cyclical high fever with chills and sweating, headache, body ache, fatigue, nausea, vomiting",
+    "guidance": "Mosquito-borne parasitic infection, common in India. Diagnosed via blood smear/rapid test. High fever with confusion, repeated vomiting, or jaundice needs urgent evaluation (possible severe/cerebral malaria)."
+  },
+  {
+    "id": "kb028",
+    "specialty": "generalPractice",
+    "condition": "Typhoid Fever",
+    "symptoms": "Sustained high fever (often worse in evening), abdominal pain, weakness, headache, loss of appetite, sometimes constipation or diarrhea, rose-colored rash",
+    "guidance": "Bacterial infection from contaminated food/water, common in India. Needs blood culture or Widal test. Severe abdominal pain or signs of intestinal bleeding/perforation needs emergency care."
+  },
+  {
+    "id": "kb029",
+    "specialty": "gastroenterology",
+    "condition": "Acute Gastroenteritis / Food Poisoning",
+    "symptoms": "Sudden vomiting, watery diarrhea, abdominal cramps, nausea, sometimes fever, dehydration",
+    "guidance": "Usually viral or bacterial, often self-limiting in 1-3 days with hydration. Signs of severe dehydration (dizziness, very dark urine, no urination, sunken eyes), blood in stool, or high fever needs urgent evaluation, especially in children and elderly."
+  },
+  {
+    "id": "kb030",
+    "specialty": "endocrinology",
+    "condition": "Type 2 Diabetes Mellitus",
+    "symptoms": "Increased thirst, frequent urination, fatigue, blurred vision, slow-healing wounds, unexplained weight loss",
+    "guidance": "Common metabolic condition, often gradual onset. Diagnosed via fasting glucose/HbA1c. Confusion, fruity-smelling breath, rapid breathing, or very high/low blood sugar with symptoms needs emergency care (possible DKA or severe hypoglycemia)."
+  },
+  {
+    "id": "kb031",
+    "specialty": "endocrinology",
+    "condition": "Hypothyroidism",
+    "symptoms": "Fatigue, weight gain, cold intolerance, dry skin, hair thinning, constipation, depression, slowed heart rate",
+    "guidance": "Common, especially in women. Diagnosed via TSH blood test. Gradual onset condition managed with thyroid hormone replacement and monitoring."
+  },
+  {
+    "id": "kb032",
+    "specialty": "endocrinology",
+    "condition": "Hyperthyroidism",
+    "symptoms": "Weight loss despite normal appetite, rapid heartbeat, sweating, heat intolerance, tremor, anxiety, bulging eyes",
+    "guidance": "Diagnosed via TSH/T3/T4 blood tests. Rapid heart rate with chest pain or severe agitation needs urgent evaluation (possible thyroid storm)."
+  },
+  {
+    "id": "kb033",
+    "specialty": "urology",
+    "condition": "Kidney Stones (Renal Colic)",
+    "symptoms": "Severe one-sided flank or back pain that comes in waves, pain radiating to groin, blood in urine, nausea, vomiting, painful urination",
+    "guidance": "Common condition requiring imaging (ultrasound/CT) to confirm. Pain combined with fever and chills suggests infection and needs urgent care. Inability to urinate is an emergency."
+  },
+  {
+    "id": "kb034",
+    "specialty": "urology",
+    "condition": "Benign Prostatic Hyperplasia (BPH)",
+    "symptoms": "Frequent urination especially at night, weak urine stream, difficulty starting urination, feeling of incomplete emptying",
+    "guidance": "Common in older men. Complete inability to urinate (urinary retention) is an emergency requiring immediate care."
+  },
+  {
+    "id": "kb035",
+    "specialty": "gynecology",
+    "condition": "Dysmenorrhea / Menstrual Pain",
+    "symptoms": "Cramping lower abdominal pain during periods, lower back pain, nausea, fatigue",
+    "guidance": "Very common. Usually manageable with pain relief and heat. Severe pain that disrupts daily life, or pain with heavy/irregular bleeding, warrants gynecological evaluation."
+  },
+  {
+    "id": "kb036",
+    "specialty": "gynecology",
+    "condition": "Polycystic Ovary Syndrome (PCOS)",
+    "symptoms": "Irregular periods, weight gain, acne, excess facial/body hair, difficulty conceiving",
+    "guidance": "Common hormonal condition, diagnosed via clinical evaluation, ultrasound and bloodwork. Managed long-term with lifestyle changes and medication."
+  },
+  {
+    "id": "kb037",
+    "specialty": "gynecology",
+    "condition": "Vaginal / Urinary Tract Infection in Women",
+    "symptoms": "Pelvic discomfort, unusual discharge, itching, burning during urination, odor",
+    "guidance": "Common and treatable. Fever, severe pelvic pain, or back pain may indicate a more serious infection requiring urgent care."
+  },
+  {
+    "id": "kb038",
+    "specialty": "gynecology",
+    "condition": "Pregnancy-Related Concerns (Early)",
+    "symptoms": "Missed period, nausea, breast tenderness, fatigue, spotting",
+    "guidance": "Confirm with a pregnancy test and obstetric evaluation. Heavy bleeding, severe abdominal pain, or fainting during pregnancy is an emergency."
+  },
+  {
+    "id": "kb039",
+    "specialty": "pediatrics",
+    "condition": "Childhood Fever (Viral Illness)",
+    "symptoms": "Fever, fussiness, reduced appetite, mild cough or runny nose, lethargy",
+    "guidance": "Common in children, usually viral. Fever above 40°C, a child who is difficult to wake, a rash that doesn't fade under pressure, or signs of dehydration needs urgent pediatric evaluation."
+  },
+  {
+    "id": "kb040",
+    "specialty": "pediatrics",
+    "condition": "Childhood Ear Infection",
+    "symptoms": "Ear pain or pulling at ear, fever, irritability, difficulty sleeping, reduced hearing",
+    "guidance": "Common in young children. Persistent high fever or fluid draining from the ear needs prompt evaluation."
+  },
+  {
+    "id": "kb041",
+    "specialty": "pediatrics",
+    "condition": "Hand, Foot and Mouth Disease",
+    "symptoms": "Mouth sores, rash on hands and feet, mild fever, reduced appetite, irritability in young children",
+    "guidance": "Common, contagious viral illness in children, usually mild and self-limiting. Refusal to drink fluids or signs of dehydration needs evaluation."
+  },
+  {
+    "id": "kb042",
+    "specialty": "dermatology",
+    "condition": "Acne",
+    "symptoms": "Pimples, blackheads, whiteheads, oily skin, occasional cysts, mostly on face/back/chest",
+    "guidance": "Very common, especially in teens and young adults. Managed with topical/oral treatments. Severe cystic acne or scarring warrants dermatology referral."
+  },
+  {
+    "id": "kb043",
+    "specialty": "dermatology",
+    "condition": "Urticaria (Hives)",
+    "symptoms": "Itchy raised red welts on skin that can move/change location, mild swelling",
+    "guidance": "Often allergic in origin. Usually resolves with antihistamines. If accompanied by facial/throat swelling or breathing difficulty, treat as anaphylaxis emergency."
+  },
+  {
+    "id": "kb044",
+    "specialty": "dermatology",
+    "condition": "Scabies",
+    "symptoms": "Intense itching especially at night, small red bumps or burrows, often between fingers, wrists, waistline",
+    "guidance": "Contagious skin infestation requiring topical treatment and household-level precautions. Close contacts should be evaluated too."
+  },
+  {
+    "id": "kb045",
+    "specialty": "ent",
+    "condition": "Pharyngitis / Sore Throat",
+    "symptoms": "Throat pain, difficulty swallowing, redness, sometimes fever and swollen glands",
+    "guidance": "Usually viral, sometimes bacterial (strep). Severe difficulty swallowing or breathing, or drooling in a child, needs urgent evaluation."
+  },
+  {
+    "id": "kb046",
+    "specialty": "ent",
+    "condition": "Tonsillitis",
+    "symptoms": "Severe sore throat, swollen tonsils sometimes with white patches, fever, difficulty swallowing, bad breath",
+    "guidance": "Can be viral or bacterial. Recurrent episodes may need ENT evaluation. Difficulty breathing or swallowing saliva needs urgent care."
+  },
+  {
+    "id": "kb047",
+    "specialty": "ent",
+    "condition": "Vertigo / Benign Paroxysmal Positional Vertigo (BPPV)",
+    "symptoms": "Brief spinning sensation triggered by head movement, nausea, imbalance",
+    "guidance": "Common inner-ear condition, often resolves with repositioning maneuvers. Vertigo with slurred speech, weakness, or persistent severe symptoms needs urgent neurological evaluation to rule out stroke."
+  },
+  {
+    "id": "kb048",
+    "specialty": "ophthalmology",
+    "condition": "Dry Eyes",
+    "symptoms": "Gritty or burning sensation, redness, sensitivity to light, blurred vision that improves with blinking",
+    "guidance": "Common, often related to screen use or environment. Managed with lubricating drops. Persistent symptoms warrant an eye exam."
+  },
+  {
+    "id": "kb049",
+    "specialty": "ophthalmology",
+    "condition": "Stye / Eyelid Infection",
+    "symptoms": "Painful red bump on eyelid margin, swelling, tenderness, occasionally discharge",
+    "guidance": "Usually resolves with warm compresses. Spreading redness, vision changes, or significant swelling needs evaluation."
+  },
+  {
+    "id": "kb050",
+    "specialty": "ophthalmology",
+    "condition": "Acute Vision Loss / Eye Trauma",
+    "symptoms": "Sudden blurred or lost vision, eye pain, flashes of light, curtain-like shadow in vision, eye injury",
+    "guidance": "Sudden vision changes or eye trauma are time-sensitive emergencies — same-day or immediate ophthalmology evaluation is needed to prevent permanent vision loss."
+  },
+  {
+    "id": "kb051",
+    "specialty": "psychiatry",
+    "condition": "Panic Attack",
+    "symptoms": "Sudden intense fear, racing heart, chest tightness, shortness of breath, dizziness, trembling, fear of dying",
+    "guidance": "Common and treatable, though symptoms can closely mimic a heart attack. First episode with chest pain should be medically evaluated to rule out cardiac causes before assuming panic attack."
+  },
+  {
+    "id": "kb052",
+    "specialty": "psychiatry",
+    "condition": "Insomnia",
+    "symptoms": "Difficulty falling or staying asleep, waking too early, daytime fatigue, irritability, difficulty concentrating",
+    "guidance": "Common, often linked to stress, anxiety, or habits. Persistent insomnia affecting daily function warrants evaluation."
+  },
+  {
+    "id": "kb053",
+    "specialty": "generalPractice",
+    "condition": "Iron-Deficiency Anemia",
+    "symptoms": "Fatigue, pale skin, weakness, shortness of breath on exertion, dizziness, brittle nails, cold hands/feet",
+    "guidance": "Common, especially in menstruating women and vegetarians. Diagnosed via CBC and iron studies. Severe fatigue with chest pain or fainting needs urgent evaluation."
+  },
+  {
+    "id": "kb054",
+    "specialty": "generalPractice",
+    "condition": "Seasonal Allergies (Allergic Rhinitis)",
+    "symptoms": "Sneezing, runny or itchy nose, watery itchy eyes, congestion, no fever",
+    "guidance": "Common, often seasonal or trigger-related. Managed with antihistamines and trigger avoidance. Distinguish from infection by the absence of fever."
+  },
+  {
+    "id": "kb055",
+    "specialty": "orthopedics",
+    "condition": "Frozen Shoulder (Adhesive Capsulitis)",
+    "symptoms": "Gradual shoulder stiffness and pain, significantly reduced range of motion, worse at night",
+    "guidance": "Develops over weeks to months. Managed with physiotherapy; sometimes requires injections. More common with diabetes."
+  },
+  {
+    "id": "kb056",
+    "specialty": "dentistry",
+    "condition": "Dental Pain / Toothache",
+    "symptoms": "Throbbing tooth pain, sensitivity to hot/cold, swelling of gum or face, pain when chewing",
+    "guidance": "Needs dental evaluation; may indicate cavity, abscess, or cracked tooth. Facial swelling spreading toward the eye or throat, fever, or difficulty swallowing/breathing needs emergency care (risk of spreading infection)."
+  }
+]

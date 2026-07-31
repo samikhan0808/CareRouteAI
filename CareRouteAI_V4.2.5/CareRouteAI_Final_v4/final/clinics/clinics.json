@@ -1,0 +1,705 @@
+[
+  {
+    "id": "c1",
+    "name": "Titan Hospital",
+    "address": "Pokhran Rd No. 2, Thane West, MH 400601",
+    "lat": 19.2319,
+    "lng": 72.9475,
+    "specialties": [
+      "cardiology",
+      "pulmonology",
+      "emergency",
+      "generalPractice"
+    ],
+    "rating": 4.7,
+    "phone": "+91-22-2539-7700",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "pulmonology": 25,
+      "emergency": 10,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c2",
+    "name": "Vedant Hospital",
+    "address": "Balkum Naka, Thane West, MH 400608",
+    "lat": 19.2082,
+    "lng": 72.961,
+    "specialties": [
+      "orthopedics",
+      "neurology",
+      "generalPractice",
+      "ent"
+    ],
+    "rating": 4.4,
+    "phone": "+91-22-2547-7777",
+    "open": "8:00 AM – 9:00 PM",
+    "emergency": true,
+    "avg_consult_mins": {
+      "orthopedics": 20,
+      "neurology": 40,
+      "generalPractice": 15,
+      "ent": 20
+    }
+  },
+  {
+    "id": "c3",
+    "name": "Bethany Hospital",
+    "address": "Vasant Vihar, Pokhran Rd, Thane West, MH 400610",
+    "lat": 19.2187,
+    "lng": 72.9621,
+    "specialties": [
+      "gynecology",
+      "pediatrics",
+      "dermatology",
+      "generalPractice"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-2544-1800",
+    "open": "8:00 AM – 8:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "gynecology": 25,
+      "pediatrics": 20,
+      "dermatology": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c4",
+    "name": "Jupiter Hospital",
+    "address": "Eastern Express Hwy, Thane East, MH 400601",
+    "lat": 19.2095,
+    "lng": 72.9724,
+    "specialties": [
+      "cardiology",
+      "neurology",
+      "gastroenterology",
+      "urology",
+      "pulmonology",
+      "emergency"
+    ],
+    "rating": 4.8,
+    "phone": "+91-22-6766-0000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "neurology": 40,
+      "gastroenterology": 25,
+      "urology": 20,
+      "pulmonology": 25,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c5",
+    "name": "Kaushalya Medical Foundation",
+    "address": "Kopri Colony, Thane East, MH 400603",
+    "lat": 19.2,
+    "lng": 72.9666,
+    "specialties": [
+      "ophthalmology",
+      "ent",
+      "psychiatry",
+      "generalPractice",
+      "dermatology"
+    ],
+    "rating": 4.3,
+    "phone": "+91-22-2537-2222",
+    "open": "8:00 AM – 8:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "ophthalmology": 20,
+      "ent": 20,
+      "psychiatry": 45,
+      "generalPractice": 15,
+      "dermatology": 15
+    }
+  },
+  {
+    "id": "c6",
+    "name": "Currae Specialty Hospital",
+    "address": "Ghodbunder Rd, Kapurbawdi, Thane West, MH 400615",
+    "lat": 19.2558,
+    "lng": 72.9712,
+    "specialties": [
+      "gastroenterology",
+      "endocrinology",
+      "gynecology",
+      "pulmonology",
+      "emergency"
+    ],
+    "rating": 4.6,
+    "phone": "+91-22-2597-6900",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "gastroenterology": 25,
+      "endocrinology": 25,
+      "gynecology": 25,
+      "pulmonology": 25,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c7",
+    "name": "Hiranandani Fortis Hospital",
+    "address": "Hiranandani Estate, Ghodbunder Rd, Thane West, MH 400607",
+    "lat": 19.0805,
+    "lng": 72.9984,
+    "specialties": [
+      "cardiology",
+      "orthopedics",
+      "urology",
+      "neurology",
+      "dermatology",
+      "emergency"
+    ],
+    "rating": 4.9,
+    "phone": "+91-22-6767-8888",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "orthopedics": 20,
+      "urology": 20,
+      "neurology": 40,
+      "dermatology": 15,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c8",
+    "name": "Horizon Prime Hospital",
+    "address": "Wagle Estate, Thane West, MH 400604",
+    "lat": 19.2481,
+    "lng": 72.9757,
+    "specialties": [
+      "pediatrics",
+      "ent",
+      "ophthalmology",
+      "generalPractice",
+      "endocrinology"
+    ],
+    "rating": 4.3,
+    "phone": "+91-22-2582-1111",
+    "open": "9:00 AM – 9:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "pediatrics": 20,
+      "ent": 20,
+      "ophthalmology": 20,
+      "generalPractice": 15,
+      "endocrinology": 25
+    }
+  },
+  {
+    "id": "c9",
+    "name": "Apple Saraswati Multispecialty Hospital",
+    "address": "Majiwada, Thane West, MH 400601",
+    "lat": 19.2513,
+    "lng": 72.9819,
+    "specialties": [
+      "orthopedics",
+      "gastroenterology",
+      "gynecology",
+      "dentistry",
+      "generalPractice"
+    ],
+    "rating": 4.2,
+    "phone": "+91-22-2580-3333",
+    "open": "8:00 AM – 10:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "orthopedics": 20,
+      "gastroenterology": 25,
+      "gynecology": 25,
+      "dentistry": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c10",
+    "name": "Surana Sethia Hospital",
+    "address": "Kopri, Thane East, MH 400603",
+    "lat": 19.0535,
+    "lng": 72.887,
+    "specialties": [
+      "cardiology",
+      "psychiatry",
+      "urology",
+      "dentistry",
+      "generalPractice"
+    ],
+    "rating": 4.1,
+    "phone": "+91-22-2536-5555",
+    "open": "8:00 AM – 8:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "psychiatry": 45,
+      "urology": 20,
+      "dentistry": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c11",
+    "name": "Oscar Multispecialty Hospital",
+    "address": "Vartak Nagar, Thane West, MH 400606",
+    "lat": 19.2435,
+    "lng": 72.9831,
+    "specialties": [
+      "neurology",
+      "psychiatry",
+      "endocrinology",
+      "generalPractice"
+    ],
+    "rating": 4.2,
+    "phone": "+91-22-2541-6600",
+    "open": "9:00 AM – 9:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "neurology": 40,
+      "psychiatry": 45,
+      "endocrinology": 25,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c12",
+    "name": "Highland Specialty Hospital",
+    "address": "Manpada Rd, Thane West, MH 400612",
+    "lat": 19.2223,
+    "lng": 72.9842,
+    "specialties": [
+      "gynecology",
+      "pediatrics",
+      "dermatology",
+      "ent",
+      "generalPractice"
+    ],
+    "rating": 4.0,
+    "phone": "+91-22-2583-9900",
+    "open": "8:00 AM – 8:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "gynecology": 25,
+      "pediatrics": 20,
+      "dermatology": 15,
+      "ent": 20,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c13",
+    "name": "Sahyadri Hospital",
+    "address": "Wagle Estate, Thane West, MH 400604",
+    "lat": 19.1284,
+    "lng": 73.2381,
+    "specialties": [
+      "cardiology",
+      "orthopedics",
+      "neurology",
+      "urology",
+      "pulmonology",
+      "emergency"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-2582-1111",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "orthopedics": 20,
+      "neurology": 40,
+      "urology": 20,
+      "pulmonology": 25,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c14",
+    "name": "Lifeline Hospital",
+    "address": "Kopri, Thane East, MH 400603",
+    "lat": 19.1983,
+    "lng": 72.9691,
+    "specialties": [
+      "ophthalmology",
+      "ent",
+      "psychiatry",
+      "generalPractice",
+      "dermatology"
+    ],
+    "rating": 4.3,
+    "phone": "+91-22-2536-5555",
+    "open": "8:00 AM – 8:00 PM",
+    "emergency": false,
+    "avg_consult_mins": {
+      "ophthalmology": 20,
+      "ent": 20,
+      "psychiatry": 45,
+      "generalPractice": 15,
+      "dermatology": 15
+    }
+  },
+  {
+    "id": "c15",
+    "name": "Lilavati Hospital & Research Centre",
+    "address": "A-791, Bandra Reclamation, Bandra West, Mumbai, MH 400050",
+    "lat": 19.0508,
+    "lng": 72.8291,
+    "specialties": [
+      "cardiology",
+      "neurology",
+      "gastroenterology",
+      "generalPractice"
+    ],
+    "rating": 4.6,
+    "phone": "+91-22-2675-1000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "neurology": 30,
+      "gastroenterology": 25,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c16",
+    "name": "Kokilaben Dhirubhai Ambani Hospital",
+    "address": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West, Mumbai, MH 400053",
+    "lat": 19.131,
+    "lng": 72.825,
+    "specialties": [
+      "orthopedics",
+      "urology",
+      "cardiology",
+      "generalPractice"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-4269-6969",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "orthopedics": 25,
+      "urology": 25,
+      "cardiology": 30,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c17",
+    "name": "Breach Candy Hospital",
+    "address": "60, Bhulabhai Desai Rd, Breach Candy, Mumbai, MH 400026",
+    "lat": 18.9738,
+    "lng": 72.8047,
+    "specialties": [
+      "gynecology",
+      "pediatrics",
+      "dermatology",
+      "generalPractice"
+    ],
+    "rating": 4.4,
+    "phone": "+91-22-2363-1111",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "gynecology": 25,
+      "pediatrics": 20,
+      "dermatology": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c18",
+    "name": "P.D. Hinduja Hospital & Medical Research Centre",
+    "address": "Veer Savarkar Marg, Mahim West, Mumbai, MH 400016",
+    "lat": 19.0332,
+    "lng": 72.8384,
+    "specialties": [
+      "gastroenterology",
+      "endocrinology",
+      "gynecology",
+      "generalPractice"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-2445-1515",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "gastroenterology": 25,
+      "endocrinology": 25,
+      "gynecology": 25,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c19",
+    "name": "Jaslok Hospital & Research Centre",
+    "address": "15, Dr. G Deshmukh Marg, Pedder Rd, Mumbai, MH 400026",
+    "lat": 18.9715,
+    "lng": 72.8097,
+    "specialties": [
+      "cardiology",
+      "neurology",
+      "urology",
+      "generalPractice"
+    ],
+    "rating": 4.3,
+    "phone": "+91-22-2360-4444",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "neurology": 30,
+      "urology": 25,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c20",
+    "name": "SevenHills Hospital",
+    "address": "A-1, Andheri-Kurla Rd, Marol, Andheri East, Mumbai, MH 400059",
+    "lat": 19.1144,
+    "lng": 72.8679,
+    "specialties": [
+      "orthopedics",
+      "psychiatry",
+      "dermatology",
+      "generalPractice"
+    ],
+    "rating": 4.2,
+    "phone": "+91-22-2857-0000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "orthopedics": 25,
+      "psychiatry": 45,
+      "dermatology": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c21",
+    "name": "Nanavati Super Speciality Hospital",
+    "address": "S.V. Rd, Vile Parle West, Mumbai, MH 400056",
+    "lat": 19.0957,
+    "lng": 72.8399,
+    "specialties": [
+      "gynecology",
+      "pediatrics",
+      "dermatology",
+      "generalPractice"
+    ],
+    "rating": 4.4,
+    "phone": "+91-22-2670-5000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "gynecology": 25,
+      "pediatrics": 20,
+      "dermatology": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c22",
+    "name": "Wockhardt Hospital",
+    "address": "C-2, Sion-Trombay Rd, Chembur, Mumbai, MH 400071",
+    "lat": 19.077,
+    "lng": 72.9,
+    "specialties": [
+      "cardiology",
+      "neurology",
+      "urology",
+      "generalPractice"
+    ],
+    "rating": 4.3,
+    "phone": "+91-22-2525-2525",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "neurology": 30,
+      "urology": 25,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c23",
+    "name": "Global Hospitals",
+    "address": "A-1, Andheri-Kurla Rd, Marol, Andheri East, Mumbai, MH 400059",
+    "lat": 19.116,
+    "lng": 72.869,
+    "specialties": [
+      "orthopedics",
+      "psychiatry",
+      "dermatology",
+      "generalPractice"
+    ],
+    "rating": 4.2,
+    "phone": "+91-22-2857-0000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "orthopedics": 25,
+      "psychiatry": 45,
+      "dermatology": 15,
+      "generalPractice": 15
+    }
+  },
+  {
+    "id": "c25",
+    "name": "Hiranandani Hospital",
+    "address": "Hiranandani Estate, Ghodbunder Rd, Thane West, MH 400607",
+    "lat": 19.264,
+    "lng": 72.972,
+    "specialties": [
+      "cardiology",
+      "orthopedics",
+      "urology",
+      "neurology",
+      "pulmonology",
+      "emergency"
+    ],
+    "rating": 4.9,
+    "phone": "+91-22-6767-8888",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "orthopedics": 20,
+      "urology": 20,
+      "neurology": 40,
+      "pulmonology": 25,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c30",
+    "name": "Bombay Hospital & Medical Research Centre",
+    "address": "12, Queen's Rd, Fort, Mumbai, MH 400001",
+    "lat": 19.076,
+    "lng": 72.8777,
+    "specialties": [
+      "cardiology",
+      "neurology",
+      "gastroenterology",
+      "generalPractice",
+      "urology"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-6665-1414",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "neurology": 30,
+      "gastroenterology": 25,
+      "generalPractice": 15,
+      "urology": 20
+    }
+  },
+  {
+    "id": "c26",
+    "name": "Dr. L. H. Hiranandani Hospital",
+    "address": "Powai, Mumbai, MH 400076",
+    "lat": 19.1186,
+    "lng": 72.9095,
+    "specialties": [
+      "cardiology",
+      "orthopedics",
+      "urology",
+      "neurology",
+      "emergency"
+    ],
+    "rating": 4.6,
+    "phone": "+91-22-2574-1234",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "cardiology": 30,
+      "orthopedics": 25,
+      "urology": 20,
+      "neurology": 40,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c27",
+    "name": "Rajawadi Hospital",
+    "address": "Ghatkopar East, Mumbai, MH 400077",
+    "lat": 19.0798,
+    "lng": 72.9085,
+    "specialties": [
+      "pediatrics",
+      "gynecology",
+      "dermatology",
+      "generalPractice",
+      "emergency"
+    ],
+    "rating": 4.1,
+    "phone": "+91-22-2100-0000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "pediatrics": 20,
+      "gynecology": 25,
+      "dermatology": 15,
+      "generalPractice": 15,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c28",
+    "name": "Tata Memorial Hospital",
+    "address": "Parel, Mumbai, MH 400012",
+    "lat": 19.0050,
+    "lng": 72.8427,
+    "specialties": [
+      "generalPractice",
+      "endocrinology",
+      "oncology",
+      "emergency"
+    ],
+    "rating": 4.5,
+    "phone": "+91-22-2417-1000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "generalPractice": 15,
+      "endocrinology": 25,
+      "oncology": 30,
+      "emergency": 10
+    }
+  },
+  {
+    "id": "c29",
+    "name": "Nair Hospital & TN Medical College",
+    "address": "Dr. A L Nair Rd, Mumbai Central, Mumbai, MH 400008",
+    "lat": 19.0033,
+    "lng": 72.8218,
+    "specialties": [
+      "orthopedics",
+      "neurology",
+      "generalPractice",
+      "emergency"
+    ],
+    "rating": 4.2,
+    "phone": "+91-22-2373-3000",
+    "open": "24 Hours",
+    "emergency": true,
+    "avg_consult_mins": {
+      "orthopedics": 25,
+      "neurology": 40,
+      "generalPractice": 15,
+      "emergency": 10
+    }
+  }
+]

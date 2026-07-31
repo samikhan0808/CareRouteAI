@@ -1,0 +1,453 @@
+{
+  "triages": [
+    {
+      "timestamp": "2026-06-29 14:43:57",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "GERD (Acid Reflux)",
+          "specialty": "gastroenterology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Gastritis / Peptic Ulcer",
+          "specialty": "gastroenterology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Irritable Bowel Syndrome (IBS)",
+          "specialty": "gastroenterology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 14:46:15",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "GERD (Acid Reflux)",
+          "specialty": "gastroenterology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Gastritis / Peptic Ulcer",
+          "specialty": "gastroenterology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Irritable Bowel Syndrome (IBS)",
+          "specialty": "gastroenterology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 15:00:31",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-10 22:47:08",
+      "specialty": "emergency",
+      "urgency": "EMERGENCY",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:00:58",
+      "specialty": "generalPractice",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:33:41",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Sinusitis",
+          "specialty": "ent",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Otitis Media (Ear Infection)",
+          "specialty": "ent",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:43:53",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Dry Eyes",
+          "specialty": "ophthalmology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Acute Vision Loss / Eye Trauma",
+          "specialty": "ophthalmology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Conjunctivitis (Pink Eye)",
+          "specialty": "ophthalmology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 20:40:55",
+      "specialty": "orthopedics",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-14 19:11:55",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-14 23:44:44",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-23 21:21:11",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Tonsillitis",
+          "specialty": "ent",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-24 23:03:44",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-25 20:43:17",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-25 21:09:20",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Conjunctivitis (Pink Eye)",
+          "specialty": "ophthalmology",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-27 20:47:24",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Tonsillitis",
+          "specialty": "ent",
+          "confidence": 0.78
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "ent",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-28 18:36:39",
+      "specialty": "generalPractice",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-29 06:45:33",
+      "specialty": "dermatology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urticaria (Hives)",
+          "specialty": "dermatology",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Eczema (Atopic Dermatitis)",
+          "specialty": "dermatology",
+          "confidence": 0.8
+        },
+        {
+          "condition": "Scabies",
+          "specialty": "dermatology",
+          "confidence": 0.78
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "timestamp": "2026-06-29 14:46:53",
+      "clinic_id": "c9",
+      "clinic_name": "Apple Saraswati Multispecialty Hospital",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-06-29 15:04:19",
+      "clinic_id": "c11",
+      "clinic_name": "Oscar Multispecialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-10 22:49:08",
+      "clinic_id": "c7",
+      "clinic_name": "Hiranandani Fortis Hospital",
+      "specialty": "emergency",
+      "urgency": "EMERGENCY",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 00:52:48",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 00:52:49",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 20:42:32",
+      "clinic_id": "c9",
+      "clinic_name": "Apple Saraswati Multispecialty Hospital",
+      "specialty": "orthopedics",
+      "urgency": "URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-14 23:46:48",
+      "clinic_id": "c11",
+      "clinic_name": "Oscar Multispecialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-23 21:22:20",
+      "clinic_id": "c12",
+      "clinic_name": "Sindhudurg Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-23 21:22:36",
+      "clinic_id": "c12",
+      "clinic_name": "Sindhudurg Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-24 23:04:56",
+      "clinic_id": "c25",
+      "clinic_name": "Hiranandani Hospital",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-25 21:10:27",
+      "clinic_id": "c14",
+      "clinic_name": "Lifeline Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-27 20:49:12",
+      "clinic_id": "c8",
+      "clinic_name": "Horizon Prime Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    }
+  ]
+}

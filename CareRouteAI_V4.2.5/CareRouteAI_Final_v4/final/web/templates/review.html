@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Review Triage — CareRouteAI{% endblock %}
+{% block content %}
+<div class="results-wrap">
+    <div class="triage-card" id="reviewCard">
+        <div class="triage-card-head">
+            <div class="triage-icon">📝</div>
+            <div>
+                <div style="font-weight:800;font-size:18px;">Review Your Triage Summary</div>
+                <div style="font-size:13px;color:var(--slate);margin-top:4px;">Confirm before booking an appointment.
+                </div>
+            </div>
+        </div>
+        <div id="reviewContent" style="margin-top:16px; line-height:1.7; color:var(--navy);"></div>
+        <div style="margin-top:24px; display:grid; gap:12px;">
+            <button id="confirmBookBtn" class="btn-primary">Confirm and Book Appointment</button>
+            <a href="/triage" class="btn-secondary" style="text-align:center; display:inline-block;">Continue
+                conversation</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.textContent = str == null ? "" : String(str);
+        return div.innerHTML;
+    }
+
+    function render() {
+        const triage = JSON.parse(sessionStorage.getItem("triage_result") || "{}");
+        const clinics = JSON.parse(sessionStorage.getItem("clinics") || "[]");
+        const root = document.getElementById("reviewContent");
+
+        if (!triage.specialty) {
+            root.innerHTML = `<div style="color:var(--slate);">No triage summary found. <a href="/">Start again</a>.</div>`;
+            document.getElementById("confirmBookBtn").disabled = true;
+            return;
+        }
+
+        const specialty = (triage.specialty || "generalPractice").replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase()).trim();
+        const symptoms = (triage.keySymptoms || []).map(s => `<li>${escapeHtml(s)}</li>`).join("");
+
+        root.innerHTML = `
+      <div><strong>Primary concern:</strong> ${escapeHtml(triage.primaryConcern || "As described")}</div>
+      <div><strong>Specialty:</strong> ${escapeHtml(specialty)}</div>
+      <div><strong>Urgency:</strong> ${escapeHtml(triage.urgency || "NON-URGENT")}</div>
+      <div><strong>Confidence:</strong> ${Math.round((triage.confidence || 0.8) * 100)}%</div>
+      <div><strong>Duration:</strong> ${escapeHtml(triage.duration || "unknown")}</div>
+      <div style="margin-top:16px;"><strong>Key symptoms:</strong></div>
+      <ul style="margin:8px 0 0 18px;">${symptoms || `<li>${escapeHtml(triage.summary || "No symptoms listed.")}</li>`}</ul>
+      <div style="margin-top:16px;color:var(--slate);font-size:13px;">Select a clinic from the next page after confirmation.</div>
+    `;
+    }
+
+    document.getElementById("confirmBookBtn").addEventListener("click", () => {
+        sessionStorage.setItem('user_confirmed_booking', 'true');
+        window.location.href = "/results";
+    });
+
+    render();
+</script>
+{% endblock %}
