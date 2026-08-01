@@ -12,6 +12,7 @@
   const URGENCY_COLOR = { EMERGENCY: "#E8344A", URGENT: "#E67E22", "SEMI-URGENT": "#F5A623", "NON-URGENT": "#27AE60" };
   const URGENCY_BG = { EMERGENCY: "rgba(232,52,74,.10)", URGENT: "rgba(230,126,34,.10)", "SEMI-URGENT": "rgba(245,166,35,.10)", "NON-URGENT": "rgba(39,174,96,.10)" };
   const URGENCY_ICON = { EMERGENCY: "🔴", URGENT: "🟠", "SEMI-URGENT": "🟡", "NON-URGENT": "🟢" };
+  let currentClinics = [];
 
   function specialtyLabel(s) {
     return (s || "generalPractice").replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase()).trim();
@@ -104,8 +105,8 @@
           iconAnchor: [isTop ? 18 : 14, isTop ? 18 : 14],
         })
       })
-      .addTo(map)
-      .bindPopup(`
+        .addTo(map)
+        .bindPopup(`
         <b>${isTop ? "⭐ Best Match: " : ""}${c.name}</b><br>
         ${c.address || ""}<br>
         📏 ${c.distance_km != null ? parseFloat(c.distance_km).toFixed(1) + " km" : "N/A"}<br>
@@ -120,6 +121,7 @@
   function render() {
     const triage = safeParseJSON(sessionStorage.getItem("triage_result"), {});
     const clinics = safeParseJSON(sessionStorage.getItem("clinics"), []);
+    currentClinics = clinics;
     const warnings = safeParseJSON(sessionStorage.getItem("location_warnings"), []);
     const ragCtx = sessionStorage.getItem("rag_context") || "";
     const routing = sessionStorage.getItem("routing_reason") || "";
@@ -262,7 +264,7 @@
     <span style="font-weight:400;font-size:12px;color:var(--slate);">Ranked by AI · specialty + distance + queue</span>
   </div>
   `;
-  // Show source banner — live nearby vs registered list
+    // Show source banner — live nearby vs registered list
     const isLive = clinics.length > 0 && clinics[0].id && clinics[0].id.startsWith("osm_");
     html += `<div style="margin-bottom:14px;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:600;
       background:${isLive ? "#E6FAF5" : "#EBF4F7"};color:${isLive ? "#007A65" : "#1A56A0"};border:1px solid ${isLive ? "#B2EAD8" : "#BEE3F8"};">
@@ -383,16 +385,131 @@
   }
 
   async function bookClinic(clinicId, clinicName, specialty) {
+    // Find the full clinic object so we can send it for OSM hospitals
+    const clinicObj = (currentClinics || []).find(c => c.id === clinicId) || {};
+
     const res = await fetch("/api/book", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ clinic_id: clinicId })
+      body: JSON.stringify({
+        clinic_id: clinicId,
+        clinic_data: clinicObj,   // full object for OSM hospitals
+      })
     });
     const data = await res.json();
+
+    // ── External / OSM hospital — not in our system ────────────────────
+    if (data.external) {
+      showExternalHospitalPanel(data);
+      return;
+    }
 
     if (!data.success) {
       alert("Booking failed: " + (data.error || "unknown error"));
       return;
+    }
+
+    function showExternalHospitalPanel(data) {
+      // Build directions URL
+      const mapsUrl = (data.lat && data.lng)
+        ? `https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lng}`
+        : `https://www.google.com/maps/search/${encodeURIComponent(data.clinic || "")}`;
+
+      const panel = document.createElement("div");
+      panel.style.cssText = `
+      position:fixed; inset:0; background:rgba(11,29,58,0.72);
+      display:flex; align-items:flex-end; justify-content:center;
+      z-index:9999; padding:0 0 env(safe-area-inset-bottom,0);
+    `;
+
+      panel.innerHTML = `
+      <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 32px;
+                  width:100%; max-width:520px; box-shadow:0 -8px 40px rgba(0,0,0,0.18);">
+
+        <!-- Handle bar -->
+        <div style="width:40px;height:4px;background:#E2E8F0;border-radius:2px;
+                    margin:0 auto 18px;"></div>
+
+        <!-- Hospital name -->
+        <div style="font-size:17px;font-weight:800;color:#0B1D3A;margin-bottom:4px;">
+          🏥 ${esc(data.clinic)}
+        </div>
+
+        <!-- Not integrated badge -->
+        <div style="display:inline-block;background:#FFF3CD;color:#856404;
+                    border-radius:6px;padding:3px 10px;font-size:11px;
+                    font-weight:700;margin-bottom:14px;">
+          ⚠ Not yet in our booking system
+        </div>
+
+        <!-- Address & distance -->
+        ${data.address ? `
+        <div style="font-size:13px;color:#4A5568;margin-bottom:6px;">
+          📍 ${esc(data.address)}
+          ${data.distance_km != null
+            ? ` <span style="color:#00C4A1;font-weight:700;">·
+                ${parseFloat(data.distance_km).toFixed(1)} km away</span>`
+            : ""}
+        </div>` : ""}
+
+        <!-- Message -->
+        <div style="font-size:13px;color:#64748B;background:#F8FAFC;
+                    border-radius:10px;padding:11px 14px;margin-bottom:18px;
+                    line-height:1.55;">
+          ${esc(data.message)}
+        </div>
+
+        <!-- Action buttons -->
+        <div style="display:grid;gap:10px;">
+
+          ${data.phone ? `
+          <a href="tel:${esc(data.phone)}"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#00C4A1;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            📞 Call Hospital
+            <span style="font-size:12px;opacity:.85;">${esc(data.phone)}</span>
+          </a>` : ""}
+
+          <a href="${mapsUrl}" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#1A56A0;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            🧭 Get Directions
+          </a>
+
+          ${data.website ? `
+          <a href="${esc(data.website)}" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#F6AD55;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            🌐 Visit Website
+          </a>` : ""}
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;
+                      background:#F0F7FA;color:#4A5568;border-radius:12px;padding:14px;
+                      font-size:14px;font-weight:600;">
+            🚶 Walk in directly — show this screen at reception
+          </div>
+
+        </div>
+
+        <!-- Close -->
+        <button onclick="this.closest('[style*=fixed]').remove()"
+                style="width:100%;margin-top:14px;background:none;border:1.5px solid #E2E8F0;
+                       border-radius:12px;padding:12px;font-size:14px;color:#64748B;
+                       cursor:pointer;font-weight:600;">
+          Close
+        </button>
+      </div>
+    `;
+
+      // Close on backdrop tap
+      panel.addEventListener("click", e => {
+        if (e.target === panel) panel.remove();
+      });
+
+      document.body.appendChild(panel);
     }
 
     // Save to appointment history

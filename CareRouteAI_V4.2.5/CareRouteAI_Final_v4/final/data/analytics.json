@@ -350,6 +350,55 @@
           "confidence": 0.78
         }
       ]
+    },
+    {
+      "timestamp": "2026-08-01 22:01:02",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-01 22:23:51",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-01 22:28:36",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Dry Eyes",
+          "specialty": "ophthalmology",
+          "confidence": 0.75
+        }
+      ]
     }
   ],
   "bookings": [

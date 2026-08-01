@@ -37,6 +37,7 @@ from utils.analytics import (
     record_booking_event,
     load_analytics_summary,
 )
+from utils.validators import validate_phone
 from utils.logger import logger
 from utils.validators import validate_phone
 
@@ -295,18 +296,44 @@ def triage_message():
 def book_appointment():
     data      = request.get_json(force=True)
     clinic_id = data.get("clinic_id")
-    clinics = {c["id"] for c in _load_clinics()}
-    if clinic_id not in clinics:
+
+    # ── OSM / External hospital — not in our system ──────────────────────
+    # If the clinic_id starts with "osm_" it came from the live OpenStreetMap
+    # search and is not in our registered list. Return all available contact
+    # info so the frontend can show Call / Directions / Website / Walk-in.
+    is_osm = str(clinic_id or "").startswith("osm_")
+    if is_osm:
+        osm_data = data.get("clinic_data", {})   # frontend sends full clinic object
         return jsonify({
-            "success": False,
-            "error": "Invalid clinic"
-        }), 400
+            "success":      False,
+            "external":     True,                 # key flag — frontend checks this
+            "clinic":       osm_data.get("name", "This Hospital"),
+            "address":      osm_data.get("address", ""),
+            "phone":        osm_data.get("phone", ""),
+            "website":      osm_data.get("website", ""),
+            "lat":          osm_data.get("lat"),
+            "lng":          osm_data.get("lng"),
+            "distance_km":  osm_data.get("distance_km"),
+            "message":      (
+                "This hospital is not yet registered in our system. "
+                "You can call ahead, get directions, or walk in directly."
+            ),
+        }), 200   # 200 not 400 — this is handled, not an error
+
+    # ── Registered clinic — normal flow ──────────────────────────────────
+    registered = {c["id"] for c in _load_clinics()}
+    if clinic_id not in registered:
+        return jsonify({"success": False, "error": "Invalid clinic"}), 400
+    # ── Registered clinic — normal flow ──────────────────────────────────
+    registered = {c["id"] for c in _load_clinics()}
+    if clinic_id not in registered:
+        return jsonify({"success": False, "error": "Invalid clinic"}), 400
     name      = session.get("patient_name") or data.get("name", "Patient")
     phone     = session.get("patient_phone") or data.get("phone", "")
     if phone and not validate_phone(phone):
-        return jsonify({
-            "error": "Invalid phone number"
-        }), 400
+        return jsonify({"error": "Invalid phone number"}), 400
+
+    gender    = session.get("patient_gender") or data.get("gender") or "unspecified"
     gender    = session.get("patient_gender") or data.get("gender") or "unspecified"
     triage    = session.get("triage_result") or {}
     specialty = triage.get("specialty", "generalPractice")
