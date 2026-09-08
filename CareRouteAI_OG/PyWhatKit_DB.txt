@@ -1,0 +1,115 @@
+Date: 28/8/2026
+Time: 0:48
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : sallu bhaiClinic : Highland Specialty HospitalToken : #3Est. Wait: ~19 minutesBooking link: http://localhost:5000/queue/c12?patient_id=1bdd431b&token=3Safe travels!
+--------------------
+Date: 28/8/2026
+Time: 20:16
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 28/8/2026
+Time: 20:42
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:13
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:15
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:16
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:19
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:20
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:21
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 30/8/2026
+Time: 23:21
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 23:14
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 23:24
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 23:37
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 23:48
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : Booking TestClinic : Titan HospitalToken : #1Est. Wait: ~0 minutesBooking link: http://localhost/queue/c1?patient_id=8ada4bb0&token=1Safe travels!
+--------------------
+Date: 5/9/2026
+Time: 23:49
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 23:50
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : Booking TestClinic : Titan HospitalToken : #2Est. Wait: ~20 minutesBooking link: http://localhost/queue/c1?patient_id=07173acf&token=2Safe travels!
+--------------------
+Date: 5/9/2026
+Time: 23:58
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:29
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:34
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:43
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:47
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:49
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 15:50
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------

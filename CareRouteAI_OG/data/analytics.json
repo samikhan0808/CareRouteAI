@@ -1,0 +1,1140 @@
+{
+  "triages": [
+    {
+      "timestamp": "2026-06-29 14:43:57",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "GERD (Acid Reflux)",
+          "specialty": "gastroenterology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Gastritis / Peptic Ulcer",
+          "specialty": "gastroenterology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Irritable Bowel Syndrome (IBS)",
+          "specialty": "gastroenterology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 14:46:15",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "GERD (Acid Reflux)",
+          "specialty": "gastroenterology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Gastritis / Peptic Ulcer",
+          "specialty": "gastroenterology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Irritable Bowel Syndrome (IBS)",
+          "specialty": "gastroenterology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 15:00:31",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-10 22:47:08",
+      "specialty": "emergency",
+      "urgency": "EMERGENCY",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:00:58",
+      "specialty": "generalPractice",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:33:41",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Sinusitis",
+          "specialty": "ent",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Otitis Media (Ear Infection)",
+          "specialty": "ent",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 00:43:53",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Dry Eyes",
+          "specialty": "ophthalmology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Acute Vision Loss / Eye Trauma",
+          "specialty": "ophthalmology",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Conjunctivitis (Pink Eye)",
+          "specialty": "ophthalmology",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-12 20:40:55",
+      "specialty": "orthopedics",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-14 19:11:55",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-14 23:44:44",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-23 21:21:11",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Tonsillitis",
+          "specialty": "ent",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-24 23:03:44",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.55
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-25 20:43:17",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-25 21:09:20",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Conjunctivitis (Pink Eye)",
+          "specialty": "ophthalmology",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-27 20:47:24",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Pharyngitis / Sore Throat",
+          "specialty": "ent",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Tonsillitis",
+          "specialty": "ent",
+          "confidence": 0.78
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "ent",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-28 18:36:39",
+      "specialty": "generalPractice",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-07-29 06:45:33",
+      "specialty": "dermatology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urticaria (Hives)",
+          "specialty": "dermatology",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Eczema (Atopic Dermatitis)",
+          "specialty": "dermatology",
+          "confidence": 0.8
+        },
+        {
+          "condition": "Scabies",
+          "specialty": "dermatology",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-01 22:01:02",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-01 22:23:51",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Osteoarthritis",
+          "specialty": "orthopedics",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-01 22:28:36",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Dry Eyes",
+          "specialty": "ophthalmology",
+          "confidence": 0.75
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-11 19:42:31",
+      "specialty": "psychiatry",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Generalized Anxiety Disorder",
+          "specialty": "psychiatry",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Depression",
+          "specialty": "psychiatry",
+          "confidence": 0.75
+        },
+        {
+          "condition": "Insomnia",
+          "specialty": "psychiatry",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-11 19:44:00",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Iron-Deficiency Anemia",
+          "specialty": "generalPractice",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-24 13:59:06",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Typhoid Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-24 15:34:29",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-28 00:47:47",
+      "specialty": "dermatology",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Eczema (Atopic Dermatitis)",
+          "specialty": "dermatology",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-28 01:12:03",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Urinary Tract Infection (UTI)",
+          "specialty": "generalPractice",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-08-28 01:12:38",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Influenza (Flu)",
+          "specialty": "generalPractice",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Dengue Fever",
+          "specialty": "generalPractice",
+          "confidence": 0.8
+        },
+        {
+          "condition": "Malaria",
+          "specialty": "generalPractice",
+          "confidence": 0.75
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-05 23:40:01",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.75
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-05 23:53:50",
+      "specialty": "Rheumatology, Ophthalmology, Dentistry",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Sj\u00f6gren's Disease",
+          "specialty": "Rheumatology, Ophthalmology, Dentistry",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-06 00:01:44",
+      "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Allergic Rhinitis",
+          "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-06 00:02:10",
+      "specialty": "Infectious Disease, Pulmonology, Family Medicine, Critical Care (for severe cases)",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "COVID-19",
+          "specialty": "Infectious Disease, Pulmonology, Family Medicine, Critical Care (for severe cases)",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-06 00:11:27",
+      "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Allergic Rhinitis",
+          "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-06 00:12:31",
+      "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Allergic Rhinitis",
+          "specialty": "Allergy and Immunology, Otolaryngology (ENT), Family Medicine",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-06 16:00:49",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.82
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.8
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:12:05",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.75
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:21:27",
+      "specialty": "gastroenterology",
+      "urgency": "URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Irritable Bowel Syndrome (IBS)",
+          "specialty": "gastroenterology",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:28:26",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.75
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:30:37",
+      "specialty": "emergency",
+      "urgency": "EMERGENCY",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Common Cold / Viral Upper Respiratory Infection",
+          "specialty": "generalPractice",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:33:43",
+      "specialty": "orthopedics",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Lower Back Pain / Lumbar Strain",
+          "specialty": "orthopedics",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Fracture / Sprain",
+          "specialty": "orthopedics",
+          "confidence": 0.5499999999999999
+        },
+        {
+          "condition": "Frozen Shoulder (Adhesive Capsulitis)",
+          "specialty": "orthopedics",
+          "confidence": 0.4
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:36:52",
+      "specialty": "Urology, Infectious Disease, Family Medicine",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Urinary Tract Infection (Bladder Infection)",
+          "specialty": "Urology, Infectious Disease, Family Medicine",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:36:52",
+      "specialty": "Infectious Disease, Tropical Medicine, Gastroenterology, Urology",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Schistosomiasis",
+          "specialty": "Infectious Disease, Tropical Medicine, Gastroenterology, Urology",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:38:43",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Aplastic Anemia",
+          "specialty": "Hematology",
+          "confidence": 0.7
+        },
+        {
+          "condition": "Hemophilia",
+          "specialty": "Hematology",
+          "confidence": 0.5499999999999999
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:38:47",
+      "specialty": "Infectious Disease, Tropical Medicine, Gastroenterology, Urology",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Schistosomiasis",
+          "specialty": "Infectious Disease, Tropical Medicine, Gastroenterology, Urology",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:42:37",
+      "specialty": "Infectious Disease, Immunology",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "HIV/AIDS",
+          "specialty": "Infectious Disease, Immunology",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-09-08 20:42:37",
+      "specialty": "Rheumatology",
+      "urgency": "NON-URGENT",
+      "language": "en",
+      "predictions": [
+        {
+          "condition": "Rheumatoid Arthritis",
+          "specialty": "Rheumatology",
+          "confidence": 0.7
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "timestamp": "2026-06-29 14:46:53",
+      "clinic_id": "c9",
+      "clinic_name": "Apple Saraswati Multispecialty Hospital",
+      "specialty": "gastroenterology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-06-29 15:04:19",
+      "clinic_id": "c11",
+      "clinic_name": "Oscar Multispecialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-10 22:49:08",
+      "clinic_id": "c7",
+      "clinic_name": "Hiranandani Fortis Hospital",
+      "specialty": "emergency",
+      "urgency": "EMERGENCY",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 00:52:48",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 00:52:49",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-12 20:42:32",
+      "clinic_id": "c9",
+      "clinic_name": "Apple Saraswati Multispecialty Hospital",
+      "specialty": "orthopedics",
+      "urgency": "URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-14 23:46:48",
+      "clinic_id": "c11",
+      "clinic_name": "Oscar Multispecialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-23 21:22:20",
+      "clinic_id": "c12",
+      "clinic_name": "Sindhudurg Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-23 21:22:36",
+      "clinic_id": "c12",
+      "clinic_name": "Sindhudurg Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-24 23:04:56",
+      "clinic_id": "c25",
+      "clinic_name": "Hiranandani Hospital",
+      "specialty": "orthopedics",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-25 21:10:27",
+      "clinic_id": "c14",
+      "clinic_name": "Lifeline Hospital",
+      "specialty": "ophthalmology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-07-27 20:49:12",
+      "clinic_id": "c8",
+      "clinic_name": "Horizon Prime Hospital",
+      "specialty": "ent",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-08-28 00:48:27",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "dermatology",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-05 23:48:59",
+      "clinic_id": "c1",
+      "clinic_name": "Titan Hospital",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-05 23:50:38",
+      "clinic_id": "c1",
+      "clinic_name": "Titan Hospital",
+      "specialty": "generalPractice",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-05 23:54:21",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "Rheumatology, Ophthalmology, Dentistry",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:29",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:37",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:37",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:37",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:38",
+      "clinic_id": "c12",
+      "clinic_name": "Highland Specialty Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:39",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:41",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:41",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-06 16:01:41",
+      "clinic_id": "c3",
+      "clinic_name": "Bethany Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:29:02",
+      "clinic_id": "c1",
+      "clinic_name": "Titan Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:29:20",
+      "clinic_id": "c1",
+      "clinic_name": "Titan Hospital",
+      "specialty": "generalPractice",
+      "urgency": "SEMI-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:08",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:12",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:13",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:15",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:16",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:17",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:21",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:39:23",
+      "clinic_id": "c4",
+      "clinic_name": "Jupiter Hospital",
+      "specialty": "Hematology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:43:02",
+      "clinic_id": "c14",
+      "clinic_name": "Lifeline Hospital",
+      "specialty": "Infectious Disease, Immunology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:43:04",
+      "clinic_id": "c14",
+      "clinic_name": "Lifeline Hospital",
+      "specialty": "Infectious Disease, Immunology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    },
+    {
+      "timestamp": "2026-09-08 20:43:09",
+      "clinic_id": "c14",
+      "clinic_name": "Lifeline Hospital",
+      "specialty": "Infectious Disease, Immunology",
+      "urgency": "NON-URGENT",
+      "language": "en"
+    }
+  ]
+}

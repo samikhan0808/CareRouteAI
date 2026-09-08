@@ -1,0 +1,555 @@
+{% extends "base.html" %}
+{% block title %}Recommendations — CareRouteAI{% endblock %}
+{% block content %}
+<div class="results-wrap" id="resultsRoot">
+  <div style="text-align:center;padding:60px 0;color:var(--slate);">Loading your results…</div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const URGENCY_COLOR = { EMERGENCY: "#E8344A", URGENT: "#E67E22", "SEMI-URGENT": "#F5A623", "NON-URGENT": "#27AE60" };
+  const URGENCY_BG = { EMERGENCY: "rgba(232,52,74,.10)", URGENT: "rgba(230,126,34,.10)", "SEMI-URGENT": "rgba(245,166,35,.10)", "NON-URGENT": "rgba(39,174,96,.10)" };
+  const URGENCY_ICON = { EMERGENCY: "🔴", URGENT: "🟠", "SEMI-URGENT": "🟡", "NON-URGENT": "🟢" };
+  let currentClinics = [];
+
+  function specialtyLabel(s) {
+    return (s || "generalPractice").replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase()).trim();
+  }
+  function esc(str) {
+    const d = document.createElement("div"); d.textContent = str == null ? "" : String(str); return d.innerHTML;
+  }
+  function confidenceColor(p) {
+    if (p >= 80) return "#27AE60";
+    if (p >= 60) return "#F5A623";
+    return "#E8344A";
+  }
+
+  function safeParseJSON(value, fallback) {
+    if (typeof value !== "string" || !value) return fallback;
+    try {
+      const parsed = JSON.parse(value);
+      return parsed == null ? fallback : parsed;
+    } catch {
+      return fallback;
+    }
+  }
+
+  // ── Appointment history helpers ────────────────────────
+  function getHistory() {
+    try { return JSON.parse(localStorage.getItem("appt_history") || "[]"); } catch { return []; }
+  }
+  function saveHistory(h) { localStorage.setItem("appt_history", JSON.stringify(h.slice(-10))); }
+  function addToHistory(entry) {
+    const h = getHistory();
+    h.push({ ...entry, ts: new Date().toLocaleString("en-IN", { dateStyle: "short", timeStyle: "short" }) });
+    saveHistory(h);
+  }
+
+  function renderHistory() {
+    const h = getHistory();
+    if (!h.length) return "";
+    const rows = h.slice().reverse().slice(0, 5).map(e => `
+    <div class="appt-history-item">
+      <span class="appt-history-token">#${esc(e.token)}</span>
+      <div style="flex:1;min-width:0;">
+        <div style="font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(e.clinic)}</div>
+        <div style="font-size:11px;color:var(--slate);">${esc(e.specialty)} · ${esc(e.ts)}</div>
+      </div>
+      ${e.queue_url ? `<a href="${esc(e.queue_url)}" style="font-size:11px;color:var(--teal);font-weight:600;white-space:nowrap;">Track →</a>` : ""}
+    </div>`).join("");
+    return `
+    <div class="appt-history-wrap">
+      <div class="appt-history-title">📋 Recent Appointments</div>
+      ${rows}
+    </div>`;
+  }
+
+  function downloadBlob(fn, content, type = "application/json") {
+    const url = URL.createObjectURL(new Blob([content], { type }));
+    const a = Object.assign(document.createElement("a"), { href: url, download: fn });
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  }
+
+  function buildClinicMap(clinics, patientLat, patientLng) {
+    const map = L.map("clinic-map").setView(
+      [patientLat || 19.235, patientLng || 72.960],
+      13
+    );
+
+    L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution: "© OpenStreetMap contributors"
+      }
+    ).addTo(map);
+
+    if (patientLat && patientLng) {
+      L.marker([patientLat, patientLng])
+        .addTo(map)
+        .bindPopup("<b>Your Location</b>");
+    }
+
+    const colours = ["#00C4A1", "#f6ad55", "#e53e3e"];
+    clinics.forEach((c, i) => {
+      if (c.lat == null || c.lng == null) return;
+      const isTop = i === 0;
+      const pinColor = isTop ? "#00C4A1" : (i === 1 ? "#F6AD55" : "#94A3B8");
+      const pinLabel = isTop ? "★" : `${i + 1}`;
+      L.marker([c.lat, c.lng], {
+        icon: L.divIcon({
+          className: "",
+          html: `<div style="background:${pinColor};color:white;border-radius:50%;width:${isTop ? 36 : 28}px;height:${isTop ? 36 : 28}px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${isTop ? 15 : 12}px;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.25);">${pinLabel}</div>`,
+          iconSize: [isTop ? 36 : 28, isTop ? 36 : 28],
+          iconAnchor: [isTop ? 18 : 14, isTop ? 18 : 14],
+        })
+      })
+        .addTo(map)
+        .bindPopup(`
+        <b>${isTop ? "⭐ Best Match: " : ""}${c.name}</b><br>
+        ${c.address || ""}<br>
+        📏 ${c.distance_km != null ? parseFloat(c.distance_km).toFixed(1) + " km" : "N/A"}<br>
+        ⏱ ${c.wait_prediction_fmt || (c.wait_prediction ? c.wait_prediction + " min wait" : "N/A")}<br>
+        ⭐ ${c.rating || "N/A"} rating
+        ${c.reason ? "<br><i style='color:#555;font-size:11px;'>" + c.reason + "</i>" : ""}
+      `);
+    });
+  }
+
+  // ── Main render ────────────────────────────────────────
+  function render() {
+    const triage = safeParseJSON(sessionStorage.getItem("triage_result"), {});
+    const clinics = safeParseJSON(sessionStorage.getItem("clinics"), []);
+    currentClinics = clinics;
+    const warnings = safeParseJSON(sessionStorage.getItem("location_warnings"), []);
+    const ragCtx = sessionStorage.getItem("rag_context") || "";
+    const routing = sessionStorage.getItem("routing_reason") || "";
+    const root = document.getElementById("resultsRoot");
+
+    if (!triage.specialty) {
+      root.innerHTML = `<div style="text-align:center;padding:60px 0;color:var(--slate);">
+      No triage data found. <a href="/" style="color:var(--teal);">Start a new triage →</a></div>`;
+      return;
+    }
+
+    const urgency = triage.urgency || "NON-URGENT";
+    const uColor = URGENCY_COLOR[urgency] || "#64748B";
+    const uBg = URGENCY_BG[urgency] || "rgba(100,116,139,.10)";
+    const uIcon = URGENCY_ICON[urgency] || "🟢";
+    const confPct = Math.round((triage.confidence || 0.8) * 100);
+    const confColor = confidenceColor(confPct);
+    const isUrgent = urgency === "EMERGENCY" || urgency === "URGENT";
+
+    // Severity classification text
+    const severityDesc = {
+      EMERGENCY: "Life-threatening — go to ER or call 108 immediately",
+      URGENT: "See a doctor within 2–4 hours",
+      "SEMI-URGENT": "See a doctor today or tomorrow",
+      "NON-URGENT": "Schedule an appointment within a week"
+    }[urgency] || "";
+
+    // Condition predictions
+    let predictionsHtml = "";
+    if ((triage.predictions || []).length) {
+      const maxConf = Math.max(...triage.predictions.map(p => p.confidence || 0));
+      predictionsHtml = `
+      <div style="margin-top:16px;padding:16px;background:#F8FAFC;border:1px solid #DDEAF7;border-radius:14px;">
+        <div style="font-weight:700;font-size:13px;margin-bottom:10px;color:var(--navy);">🔬 Possible Conditions</div>
+        <div class="prediction-list">
+          ${triage.predictions.slice(0, 3).map(p => {
+        const pct = Math.round((p.confidence || 0) * 100);
+        const pFill = maxConf > 0 ? Math.round((p.confidence / maxConf) * 100) : pct;
+        const clr = confidenceColor(pct);
+        return `
+            <div class="prediction-item">
+              <div class="pred-bar-wrap" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-weight:700;font-size:13px;">${esc(p.condition || "Condition")}</span>
+                  <span style="font-size:12px;font-weight:700;color:${clr};">${pct}%</span>
+                </div>
+                <div style="font-size:11px;color:var(--slate);margin-top:1px;">${esc(p.specialty || "General Practice")}</div>
+                <div class="pred-bar-track">
+                  <div class="pred-bar-fill" style="width:${pFill}%;background:${clr};"></div>
+                </div>
+              </div>
+            </div>`;
+      }).join("")}
+        </div>
+      </div>`;
+    }
+
+    let html = `
+  ${isUrgent ? `
+  <div style="background:#FEE2E2;border:1px solid #FCA5A5;color:#9B1C1C;padding:14px 18px;border-radius:14px;margin-bottom:18px;display:flex;gap:10px;align-items:center;">
+    <span style="font-size:20px;">⚠️</span>
+    <div><strong>Urgent guidance:</strong> ${esc(severityDesc)}. If you feel unsafe, go to the nearest ER or call 108.</div>
+  </div>` : ""}
+
+  <div class="triage-card" style="border-top-color:${uColor};">
+    <div class="triage-card-head">
+      <div class="triage-icon" style="background:${uBg};">📋</div>
+      <div style="flex:1;">
+        <div style="font-weight:800;font-size:16px;">AI Triage Complete</div>
+        <div style="font-size:11px;color:var(--slate);">Powered by Gemini · RAG-grounded medical knowledge</div>
+      </div>
+      <div class="severity-pill" style="background:${uBg};color:${uColor};">
+        ${uIcon} ${esc(urgency)}
+      </div>
+    </div>
+
+    <!-- Severity description -->
+    <div style="background:${uBg};border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:${uColor};font-weight:600;">
+      ${uIcon} ${esc(severityDesc)}
+    </div>
+
+    <div class="triage-meta-grid">
+      <div class="triage-meta-item">
+        <div class="triage-meta-label">Specialty</div>
+        <div class="triage-meta-value">${esc(specialtyLabel(triage.specialty))}</div>
+      </div>
+      <div class="triage-meta-item">
+        <div class="triage-meta-label">AI Confidence</div>
+        <div class="confidence-bar-wrap">
+          <div style="font-size:14px;font-weight:700;color:${confColor};">${confPct}%</div>
+          <div class="confidence-bar-track">
+            <div class="confidence-bar-fill" style="width:${confPct}%;background:${confColor};"></div>
+          </div>
+        </div>
+      </div>
+      <div class="triage-meta-item">
+        <div class="triage-meta-label">Primary Concern</div>
+        <div class="triage-meta-value" style="font-size:13px;">${esc(triage.primaryConcern || "As described")}</div>
+      </div>
+      <div class="triage-meta-item">
+        <div class="triage-meta-label">Duration</div>
+        <div class="triage-meta-value" style="font-size:13px;">${esc(triage.duration || "As reported")}</div>
+      </div>
+    </div>
+
+    ${(triage.keySymptoms || []).length ? `
+    <div class="symptom-tags">
+      ${triage.keySymptoms.map(s => `<span class="symptom-tag">• ${esc(s)}</span>`).join("")}
+    </div>` : ""}
+
+    ${predictionsHtml}
+
+    ${routing ? `
+    <div style="margin-top:14px;padding:12px 14px;border-left:4px solid var(--teal);background:rgba(0,196,161,.06);border-radius:0 10px 10px 0;font-size:13px;color:#0B4A2A;">
+      <strong>Why this clinic:</strong> ${esc(routing)}
+    </div>` : ""}
+
+    ${ragCtx ? `
+    <div class="rag-context">
+      <div class="triage-meta-label">📚 Medical knowledge consulted</div>
+      <div style="font-size:12px;margin-top:3px;color:var(--slate);">${esc(ragCtx.split("\n")[0])}</div>
+    </div>` : ""}
+
+    ${warnings.length ? `
+    <div style="background:#FEF3C7;border:1px solid #FDE68A;color:#92400E;padding:12px 14px;border-radius:10px;margin-top:14px;font-size:13px;">
+      ⚠️ <strong>Location note:</strong> ${esc(warnings[0])}
+    </div>` : ""}
+
+    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:9px;align-items:center;">
+      <a href="/api/report" class="btn-primary" style="font-size:13px;padding:10px 18px;">📄 Download PDF Report</a>
+      <button id="dlJsonBtn" class="btn-secondary" style="font-size:13px;padding:9px 14px;">📥 Export JSON</button>
+    </div>
+  </div>
+
+  <!-- Appointment history -->
+  ${renderHistory()}
+
+  <div style="font-weight:800;font-size:15px;margin:20px 0 12px;display:flex;align-items:center;gap:8px;">
+    🏥 Recommended Clinics
+    <span style="font-weight:400;font-size:12px;color:var(--slate);">Ranked by AI · specialty + distance + queue</span>
+  </div>
+  `;
+    // Show source banner — live nearby vs registered list
+    const liveCount = clinics.filter(c => c.source === "osm" || c.is_integrated === false).length;
+    const isLive = liveCount > 0;
+    html += `<div style="margin-bottom:14px;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:600;
+      background:${isLive ? "#E6FAF5" : "#EBF4F7"};color:${isLive ? "#007A65" : "#1A56A0"};border:1px solid ${isLive ? "#B2EAD8" : "#BEE3F8"};">
+      ${isLive
+        ? `📍 Showing ${liveCount} real hospitals from OpenStreetMap near your location${liveCount < clinics.length ? ` plus ${clinics.length - liveCount} registered clinic${clinics.length - liveCount === 1 ? "" : "s"}` : ""}`
+        : `📋 Showing registered clinics sorted by distance and specialty match`}
+    </div>`;
+    if (!clinics.length) {
+      html += `<div class="clinic-card" style="text-align:center;color:var(--slate);padding:28px;">No clinics found.</div>`;
+    }
+
+    clinics.forEach((c, i) => {
+      const isTop = i === 0;
+      const distTxt = c.distance_km != null
+        ? `${parseFloat(c.distance_km).toFixed(1)} km away`
+        : "Distance unavailable";
+      const distIcon = c.distance_km != null
+        ? (c.distance_km < 3 ? "🟢" : c.distance_km < 7 ? "🟡" : "🔴")
+        : "⚪";
+      const emgBadge = c.emergency
+        ? `<span style="background:rgba(232,52,74,.1);color:var(--red);border-radius:5px;padding:2px 7px;font-size:10px;font-weight:700;">🚑 EMERGENCY CAPABLE</span>`
+        : "";
+      const specMatch = (c.specialties || []).includes(triage.specialty)
+        ? `<span style="background:var(--teal-faint);color:#007A65;border-radius:5px;padding:2px 7px;font-size:10px;font-weight:700;">✓ SPECIALTY MATCH</span>`
+        : "";
+
+      html += `
+    <div class="clinic-card ${isTop ? "top" : ""}">
+      <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:11px;">
+        <div class="clinic-rank-badge" style="background:${isTop ? "linear-gradient(135deg,var(--teal),var(--teal-dark))" : "#F4F8FB"};color:${isTop ? "#fff" : "#64748B"};">#${i + 1}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+            ${esc(c.name)}
+            ${isTop ? '<span style="background:var(--teal);color:#fff;font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;">BEST MATCH</span>' : ""}
+          </div>
+          <div style="font-size:12px;color:var(--slate);margin-top:3px;">📍 ${esc(c.address || "")}</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;">${specMatch}${emgBadge}</div>
+        </div>
+        <div style="background:${isTop ? "var(--teal-faint)" : "var(--light)"};color:${isTop ? "var(--teal-dark)" : "var(--slate)"};border-radius:8px;padding:5px 11px;font-weight:700;font-size:12px;white-space:nowrap;flex-shrink:0;">
+          Score ${esc(String(c.score || 0))}
+        </div>
+      </div>
+
+      <div class="clinic-stat-grid">
+        <div class="clinic-stat">
+          <div class="clinic-stat-value">⭐ ${esc(String(c.rating || "N/A"))}</div>
+          <div class="clinic-stat-label">Rating</div>
+        </div>
+        <div class="clinic-stat">
+          <div class="clinic-stat-value">${distIcon} ${esc(distTxt)}</div>
+          <div class="clinic-stat-label">Distance</div>
+        </div>
+        <div class="clinic-stat">
+          <div class="clinic-stat-value">⏱ ${esc(c.wait_prediction_fmt || (c.wait_prediction ? c.wait_prediction + " min" : "N/A"))}</div>
+          <div class="clinic-stat-label">Est. Wait</div>
+        </div>
+        <div class="clinic-stat">
+          <div class="clinic-stat-value">👥 ${esc(String(c.queue_length || 0))}</div>
+          <div class="clinic-stat-label">In Queue</div>
+        </div>
+      </div>
+
+      ${c.reason ? `<div style="font-size:12px;color:var(--slate);line-height:1.5;margin-bottom:10px;padding:9px 11px;background:var(--light);border-radius:8px;">💡 ${esc(c.reason)}</div>` : ""}
+
+      <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;">
+        <span style="font-size:11px;color:var(--slate);">🕒 ${esc(c.open || "")}</span>
+        <span style="font-size:11px;color:var(--slate);">📞 ${esc(c.phone || "")}</span>
+        ${c.is_integrated === false ? `
+        <div style="margin-left:auto;display:flex;gap:7px;flex-wrap:wrap;">
+          ${c.phone ? `<a href="tel:${esc(c.phone)}" class="btn-book">📞 Call</a>` : ""}
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lng}" target="_blank" rel="noopener" class="btn-book">🧭 Directions</a>
+          <span class="btn-book" style="cursor:default;opacity:.75;">🚶 Walk-in</span>
+        </div>` : `
+        <button class="btn-book ${isTop ? "primary" : ""}" style="margin-left:auto;"
+          data-clinic-id="${esc(c.id)}"
+          data-clinic-name="${esc(c.name || "")}"
+          data-clinic-lat="${esc(c.lat || "")}"
+          data-clinic-lng="${esc(c.lng || "")}"
+          data-clinic-specialty="${esc(triage.specialty || "")}">
+          ${isTop ? "Book This →" : "Book"}
+        </button>`}
+      </div>
+    </div>`;
+    });
+    html += `
+  <div id="clinic-map" style=" height:350px; border-radius:16px; margin-top:20px;"></div>
+  `;
+
+    root.innerHTML = html;
+    const patientLat =
+      parseFloat(sessionStorage.getItem("patientLat"));
+
+    const patientLng =
+      parseFloat(sessionStorage.getItem("patientLng"));
+
+    buildClinicMap(
+      clinics,
+      patientLat,
+      patientLng
+    );
+
+    // Event listeners
+    root.querySelectorAll(".btn-book[data-clinic-id]").forEach(btn => {
+      btn.addEventListener("click", () => bookClinic(btn.dataset.clinicId, btn.dataset.clinicName, btn.dataset.clinicSpecialty));
+    });
+    const dlBtn = document.getElementById("dlJsonBtn");
+    if (dlBtn) dlBtn.addEventListener("click", () => {
+      const payload = { exported_at: new Date().toISOString(), triage, clinics, routing_reason: routing };
+      downloadBlob("careroute_triage.json", JSON.stringify(payload, null, 2));
+    });
+
+    // Animate confidence bar
+    setTimeout(() => {
+      document.querySelectorAll(".confidence-bar-fill, .pred-bar-fill").forEach(el => {
+        const w = el.style.width; el.style.width = "0"; setTimeout(() => el.style.width = w, 50);
+      });
+    }, 100);
+  }
+
+  async function bookClinic(clinicId, clinicName, specialty) {
+    // Find the full clinic object so we can send it for OSM hospitals
+    const clinicObj = (currentClinics || []).find(c => c.id === clinicId) || {};
+
+    const res = await fetch("/api/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        clinic_id: clinicId,
+        clinic_data: clinicObj,   // full object for OSM hospitals
+      })
+    });
+    const data = await res.json();
+
+    // ── External / OSM hospital — not in our system ────────────────────
+    if (data.external) {
+      showExternalHospitalPanel(data);
+      return;
+    }
+
+    if (!data.success) {
+      alert("Booking failed: " + (data.error || "unknown error"));
+      return;
+    }
+
+    function showExternalHospitalPanel(data) {
+      // Build directions URL
+      const mapsUrl = (data.lat && data.lng)
+        ? `https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lng}`
+        : `https://www.google.com/maps/search/${encodeURIComponent(data.clinic || "")}`;
+
+      const panel = document.createElement("div");
+      panel.style.cssText = `
+      position:fixed; inset:0; background:rgba(11,29,58,0.72);
+      display:flex; align-items:flex-end; justify-content:center;
+      z-index:9999; padding:0 0 env(safe-area-inset-bottom,0);
+    `;
+
+      panel.innerHTML = `
+      <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 32px;
+                  width:100%; max-width:520px; box-shadow:0 -8px 40px rgba(0,0,0,0.18);">
+
+        <!-- Handle bar -->
+        <div style="width:40px;height:4px;background:#E2E8F0;border-radius:2px;
+                    margin:0 auto 18px;"></div>
+
+        <!-- Hospital name -->
+        <div style="font-size:17px;font-weight:800;color:#0B1D3A;margin-bottom:4px;">
+          🏥 ${esc(data.clinic)}
+        </div>
+
+        <!-- Not integrated badge -->
+        <div style="display:inline-block;background:#FFF3CD;color:#856404;
+                    border-radius:6px;padding:3px 10px;font-size:11px;
+                    font-weight:700;margin-bottom:14px;">
+          ⚠ Not yet in our booking system
+        </div>
+
+        <!-- Address & distance -->
+        ${data.address ? `
+        <div style="font-size:13px;color:#4A5568;margin-bottom:6px;">
+          📍 ${esc(data.address)}
+          ${data.distance_km != null
+            ? ` <span style="color:#00C4A1;font-weight:700;">·
+                ${parseFloat(data.distance_km).toFixed(1)} km away</span>`
+            : ""}
+        </div>` : ""}
+
+        <!-- Message -->
+        <div style="font-size:13px;color:#64748B;background:#F8FAFC;
+                    border-radius:10px;padding:11px 14px;margin-bottom:18px;
+                    line-height:1.55;">
+          ${esc(data.message)}
+        </div>
+
+        <!-- Action buttons -->
+        <div style="display:grid;gap:10px;">
+
+          ${data.phone ? `
+          <a href="tel:${esc(data.phone)}"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#00C4A1;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            📞 Call Hospital
+            <span style="font-size:12px;opacity:.85;">${esc(data.phone)}</span>
+          </a>` : ""}
+
+          <a href="${mapsUrl}" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#1A56A0;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            🧭 Get Directions
+          </a>
+
+          ${data.website ? `
+          <a href="${esc(data.website)}" target="_blank" rel="noopener"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;
+                    background:#F6AD55;color:#fff;border-radius:12px;padding:14px;
+                    font-weight:700;font-size:15px;text-decoration:none;">
+            🌐 Visit Website
+          </a>` : ""}
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;
+                      background:#F0F7FA;color:#4A5568;border-radius:12px;padding:14px;
+                      font-size:14px;font-weight:600;">
+            🚶 Walk in directly — show this screen at reception
+          </div>
+
+        </div>
+
+        <!-- Close -->
+        <button onclick="this.closest('[style*=fixed]').remove()"
+                style="width:100%;margin-top:14px;background:none;border:1.5px solid #E2E8F0;
+                       border-radius:12px;padding:12px;font-size:14px;color:#64748B;
+                       cursor:pointer;font-weight:600;">
+          Close
+        </button>
+      </div>
+    `;
+
+      // Close on backdrop tap
+      panel.addEventListener("click", e => {
+        if (e.target === panel) panel.remove();
+      });
+
+      document.body.appendChild(panel);
+    }
+
+    // Save to appointment history
+    addToHistory({
+      token: data.token,
+      clinic: data.clinic,
+      specialty: specialty || "General",
+      queue_url: data.queue_url,
+    });
+
+    const triage = safeParseJSON(sessionStorage.getItem("triage_result"), {});
+    const urgency = triage.urgency || "NON-URGENT";
+    const uColor = URGENCY_COLOR[urgency] || "#64748B";
+
+    document.getElementById("resultsRoot").innerHTML = `
+  <div class="success-card">
+    <div style="font-size:44px;margin-bottom:8px;">✅</div>
+    <div style="font-weight:900;font-size:20px;color:var(--green);margin-bottom:6px;">Appointment Confirmed!</div>
+    <div style="font-size:13px;color:var(--slate);margin-bottom:20px;">Your triage info has been shared with the clinic.</div>
+
+    <div style="background:#fff;border-radius:14px;padding:18px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+      <div><div class="triage-meta-label">Clinic</div><div class="triage-meta-value" style="font-size:14px;">${esc(data.clinic)}</div></div>
+      <div><div class="triage-meta-label">Token #</div><div class="triage-meta-value" style="font-size:20px;">#${esc(data.token)}</div></div>
+      <div><div class="triage-meta-label">Est. Wait</div><div class="triage-meta-value" style="color:var(--teal);">~${esc(String(data.wait_mins))} min</div></div>
+      <div><div class="triage-meta-label">Urgency</div><div class="triage-meta-value"><span class="severity-pill" style="background:${URGENCY_BG[urgency] || "rgba(100,116,139,.1)"};color:${uColor};font-size:12px;">${URGENCY_ICON[urgency] || "🟢"} ${esc(urgency)}</span></div></div>
+      <div style="grid-column:1/-1;"><div class="triage-meta-label">Address</div><div class="triage-meta-value" style="font-size:13px;font-weight:500;">${esc(data.address)}</div></div>
+    </div>
+
+    <div style="font-size:13px;color:var(--slate);margin-bottom:12px;">📞 ${esc(data.phone)}</div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      ${data.queue_url ? `<a href="${esc(data.queue_url)}" class="btn-primary" style="text-align:center;">📊 Track My Queue Position</a>` : ""}
+      ${data.report_url ? `<a href="${esc(data.report_url)}" target="_blank" class="btn-secondary" style="text-align:center;">📄 Download Triage Report (PDF)</a>` : ""}
+      <a href="/" class="btn-secondary" style="text-align:center;">← Start a new triage</a>
+    </div>
+  </div>
+  ${renderHistory()}`;
+  }
+
+  render();
+</script>
+{% endblock %}

@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block title %}CareRouteAI — Smart Healthcare Routing{% endblock %}
+{% block content %}
+<div class="hero-section">
+  <div class="hero-card">
+    <div class="hero-icon">🏥</div>
+    <h1 class="hero-title">Smart Healthcare Routing</h1>
+    <p class="hero-sub">AI-powered care guidance in the language and voice that feels natural to you.</p>
+  </div>
+
+  <div class="emergency-action" role="alert">
+    <div>
+      <strong>Medical emergency?</strong>
+      <span>Call emergency services immediately.</span>
+    </div>
+    <a class="emergency-call-btn" href="tel:112" aria-label="Call emergency services on 112">📞 Call 112</a>
+  </div>
+
+  <form id="startForm" class="start-form">
+    <input id="patientName" type="text" placeholder="Your full name" required autocomplete="name" />
+    <input id="patientPhone" type="tel" placeholder="Phone number (optional, for alerts)" autocomplete="tel" />
+    <div class="gender-row">
+      <label><input type="radio" name="gender" value="male" checked /> Male</label>
+      <label><input type="radio" name="gender" value="female" /> Female</label>
+      <label><input type="radio" name="gender" value="unspecified" /> Prefer not to say</label>
+    </div>
+    <input id="patientCity" type="text" placeholder="Your area (e.g. Thane West, Mulund, Kalyan)" value="Thane West"
+      list="cityOptions" autocomplete="address-level2" />
+    <datalist id="cityOptions">
+      <option value="Thane West">
+      <option value="Thane East">
+      <option value="Ghodbunder Road">
+      <option value="Hiranandani Estate">
+      <option value="Mulund">
+      <option value="Powai">
+      <option value="Kalyan">
+      <option value="Dombivli">
+      <option value="Navi Mumbai">
+      <option value="Vashi">
+      <option value="Kharghar">
+      <option value="Airoli">
+      <option value="Mira Road">
+      <option value="Bhayander">
+      <option value="Bhandup">
+      <option value="Vikhroli">
+    </datalist>
+    <select id="patientLanguage" class="language-select">
+      <option value="en">🌐 English</option>
+      <option value="hi">🇮🇳 हिंदी (Hinglish AI)</option>
+      <option value="mr">🟠 मराठी (Hinglish AI)</option>
+    </select>
+    <div class="location-row">
+      <button type="button" id="useMyLocationBtn" class="btn-secondary">Use current location</button>
+      <span id="locationStatus" class="location-status">Or type your area manually.</span>
+    </div>
+    <div id="locationMap" class="location-map"
+      style="display:none;height:280px;margin-top:16px;border-radius:16px;border:1px solid var(--border);"></div>
+    <input id="patientLat" name="patient_lat" type="hidden" />
+    <input id="patientLng" name="patient_lng" type="hidden" />
+    <button type="submit" class="btn-primary" id="startBtn">Begin AI Triage →</button>
+    <p class="privacy-note">🔒 Private &amp; Confidential · Emergency detection always active</p>
+  </form>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const locationStatus = document.getElementById("locationStatus");
+  const locationMap = document.getElementById("locationMap");
+  const patientLatInput = document.getElementById("patientLat");
+  const patientLngInput = document.getElementById("patientLng");
+  const useMyLocationBtn = document.getElementById("useMyLocationBtn");
+  let map, marker;
+
+  function setLocation(lat, lng, label) {
+    patientLatInput.value = lat;
+    patientLngInput.value = lng;
+    sessionStorage.setItem("patientLat", lat);
+    sessionStorage.setItem("patientLng", lng);
+    locationStatus.textContent = label || `Location pinned: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+    if (!locationMap.style.display || locationMap.style.display === "none") {
+      locationMap.style.display = "block";
+    }
+    if (!map) {
+      map = L.map("locationMap").setView([lat, lng], 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors"
+      }).addTo(map);
+      marker = L.marker([lat, lng], { draggable: true }).addTo(map);
+      marker.on("dragend", () => {
+        const pos = marker.getLatLng();
+        setLocation(pos.lat, pos.lng, "Location updated from map marker.");
+      });
+      map.on("click", e => setLocation(e.latlng.lat, e.latlng.lng, "Location selected from map."));
+    } else {
+      marker.setLatLng([lat, lng]);
+      map.setView([lat, lng], 13);
+    }
+  }
+
+  async function acquireLocation() {
+    // HTTPS check — Geolocation is blocked by browsers on plain HTTP
+    // (except localhost). If on HTTP, skip GPS and show the map picker instead.
+    const isSecure = location.protocol === "https:"
+      || location.hostname === "localhost"
+      || location.hostname === "127.0.0.1";
+
+    if (!isSecure) {
+      locationStatus.textContent =
+        "GPS needs HTTPS. Pick your location on the map below, or type your area.";
+      locationStatus.style.color = "var(--amber)";
+      // Show map centred on Thane so patient can tap their location manually
+      setLocation(19.2183, 72.9781, "Tap the map to pin your exact location.");
+      useMyLocationBtn.textContent = "Pick on map ↓";
+      useMyLocationBtn.disabled = false;
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      locationStatus.textContent = "Your browser doesn't support GPS. Type your area above.";
+      locationStatus.style.color = "var(--slate)";
+      useMyLocationBtn.style.display = "none";
+      return;
+    }
+
+    useMyLocationBtn.textContent = "Finding location…";
+    useMyLocationBtn.disabled = true;
+    locationStatus.textContent = "Requesting GPS — please allow when your browser asks…";
+    locationStatus.style.color = "var(--slate)";
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        setLocation(
+          pos.coords.latitude,
+          pos.coords.longitude,
+          `GPS found · Accuracy: ~${Math.round(pos.coords.accuracy)}m`
+        );
+        locationStatus.style.color = "var(--teal-dark)";
+        useMyLocationBtn.textContent = "Location found ✓";
+        useMyLocationBtn.disabled = true;
+      },
+      err => {
+        // No alert — just show a calm message and open the map picker
+        const msgs = {
+          1: "Location access denied. Tap the map below to set your location.",
+          2: "Location unavailable. Tap the map below to set your location.",
+          3: "Location timed out. Tap the map below or type your area.",
+        };
+        locationStatus.textContent = msgs[err.code] || "GPS failed. Use the map below.";
+        locationStatus.style.color = "var(--amber)";
+        useMyLocationBtn.textContent = "Try again";
+        useMyLocationBtn.disabled = false;
+        // Auto-open map picker centred on Thane
+        setLocation(19.2183, 72.9781, "Tap the map to pin your exact location.");
+      },
+      {
+        timeout: 12000,
+        maximumAge: 30000,
+        enableHighAccuracy: true,
+      }
+    );
+  }
+
+  const savedLat = parseFloat(sessionStorage.getItem("patientLat"));
+  const savedLng = parseFloat(sessionStorage.getItem("patientLng"));
+  if (!Number.isNaN(savedLat) && !Number.isNaN(savedLng)) {
+    setLocation(savedLat, savedLng, "Loaded previously selected location.");
+  }
+
+  useMyLocationBtn.addEventListener("click", acquireLocation);
+
+  document.getElementById("startForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const name = document.getElementById("patientName").value.trim();
+    const phone = document.getElementById("patientPhone").value.trim();
+    const city = document.getElementById("patientCity").value.trim();
+    const gender = document.querySelector("input[name='gender']:checked").value;
+    const lang = document.getElementById("patientLanguage").value;
+    const lat = patientLatInput.value ? parseFloat(patientLatInput.value) : null;
+    const lng = patientLngInput.value ? parseFloat(patientLngInput.value) : null;
+    if (!name) return;
+
+    const btn = document.getElementById("startBtn");
+    btn.textContent = "Starting…";
+    btn.disabled = true;
+
+    try {
+      const res = await fetch("/api/triage/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, city, gender, language: lang, patient_lat: lat, patient_lng: lng })
+      });
+      const data = await res.json();
+      localStorage.setItem("triage_language", lang);
+      localStorage.setItem("triage_sid", data.sid || "");
+      localStorage.setItem("patient_name", name);
+      localStorage.setItem("first_msg", data.message);
+      if (lat !== null && lng !== null) {
+        sessionStorage.setItem("patientLat", lat);
+        sessionStorage.setItem("patientLng", lng);
+      }
+      window.location.href = "/triage";
+    } catch (err) {
+      btn.textContent = "Begin AI Triage →";
+      btn.disabled = false;
+      alert("Failed to start session. Please try again.");
+    }
+  });
+</script>
+{% endblock %}

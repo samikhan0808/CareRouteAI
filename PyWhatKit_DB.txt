@@ -1,0 +1,130 @@
+Date: 28/8/2026
+Time: 20:17
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 28/8/2026
+Time: 21:0
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 21:59
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 5/9/2026
+Time: 21:59
+Phone Number: +919999999999
+Message: CAREROUTE EMERGENCY ALERTCondition: Possible Heart Attack / Cardiac EmergencyPlease call 108 immediately or visit the nearest ER.
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Highland Specialty HospitalToken : #3Est. Wait: ~19 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c12?patient_id=798e1ed1&token=3Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Highland Specialty HospitalToken : #4Est. Wait: ~38 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c12?patient_id=2dcff9c4&token=4Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Highland Specialty HospitalToken : #5Est. Wait: ~57 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c12?patient_id=fc6af48e&token=5Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Highland Specialty HospitalToken : #6Est. Wait: ~76 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c12?patient_id=07638d4d&token=6Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Highland Specialty HospitalToken : #7Est. Wait: ~95 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c12?patient_id=1be55be3&token=7Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Bethany HospitalToken : #3Est. Wait: ~36 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c3?patient_id=0af50e1e&token=3Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Bethany HospitalToken : #4Est. Wait: ~54 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c3?patient_id=1b03cd74&token=4Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Bethany HospitalToken : #5Est. Wait: ~72 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c3?patient_id=fcbd20bf&token=5Safe travels!
+--------------------
+Date: 6/9/2026
+Time: 16:1
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SamiiClinic : Bethany HospitalToken : #6Est. Wait: ~90 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c3?patient_id=9312b320&token=6Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:28
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SmClinic : Titan HospitalToken : #4Est. Wait: ~40 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c1?patient_id=4b17b039&token=4Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:29
+Phone Number: +919594055186
+Message: CareRouteAI Appointment Confirmed!Patient : SmClinic : Titan HospitalToken : #5Est. Wait: ~60 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c1?patient_id=79e762a5&token=5Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #3Est. Wait: ~50 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=06f49a4e&token=3Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #4Est. Wait: ~75 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=dd9416a3&token=4Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #5Est. Wait: ~100 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=e6d10ffb&token=5Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #6Est. Wait: ~125 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=434b7456&token=6Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #7Est. Wait: ~150 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=7b0a9ff7&token=7Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #8Est. Wait: ~175 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=36234982&token=8Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #9Est. Wait: ~200 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=c4039c8e&token=9Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:39
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Jupiter HospitalToken : #10Est. Wait: ~225 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c4?patient_id=b69943ec&token=10Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:42
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Lifeline HospitalToken : #2Est. Wait: ~23 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c14?patient_id=0016b8d0&token=2Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:43
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Lifeline HospitalToken : #3Est. Wait: ~46 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c14?patient_id=ac10bcd5&token=3Safe travels!
+--------------------
+Date: 8/9/2026
+Time: 20:43
+Phone Number: +919220721092
+Message: CareRouteAI Appointment Confirmed!Patient : mubashshir shaikhClinic : Lifeline HospitalToken : #4Est. Wait: ~69 minutesBooking link: http://fringe-varmint-isolating.ngrok-free.dev/queue/c14?patient_id=82eb92a2&token=4Safe travels!
+--------------------

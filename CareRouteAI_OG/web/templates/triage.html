@@ -1,0 +1,467 @@
+{% extends "base.html" %}
+{% block title %}AI Triage — CareRouteAI{% endblock %}
+{% block content %}
+<div class="chat-wrap">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div>
+      <div style="font-weight:700;font-size:14px;">CareRoute AI Triage</div>
+      <div class="chat-status">● Live · RAG knowledge base active</div>
+    </div>
+    <div class="emergency-badge">🚨 Emergency detection ON</div>
+  </div>
+
+  <div id="emergencyBanner"></div>
+  <div id="chatMessages" class="chat-messages"></div>
+
+  <!-- Quick-tap symptom chips — shown until first user message -->
+  <div id="quickChips" class="quick-chips-bar">
+    <div class="quick-chips-label">Tap to describe your problem:</div>
+    <div class="quick-chips-grid">
+      <button class="quick-chip" data-msg="Sir mein dard ho raha hai (headache / head pain)">🤕 Sar dard</button>
+      <button class="quick-chip" data-msg="Pet mein dard / jalan ho rahi hai (stomach pain or burning)">🤢 Pet
+        dard</button>
+      <button class="quick-chip" data-msg="Bukhar aa raha hai, body mein dard hai (fever and body ache)">🌡️
+        Bukhar</button>
+      <button class="quick-chip" data-msg="Saans lene mein takleef ho rahi hai (difficulty breathing)">😮‍💨 Saans ki
+        takleef</button>
+      <button class="quick-chip" data-msg="Seene mein dard ya bhaari pan lag raha hai (chest pain or tightness)">💔
+        Seena dard</button>
+      <button class="quick-chip" data-msg="Haath ya pair mein dard / sujan aa gayi hai (hand or leg pain / swelling)">🦵
+        Haath-pair dard</button>
+      <button class="quick-chip" data-msg="Aankhon mein jalan / dhundhla dikhta hai (eye burning or blurry vision)">👁️
+        Aankhon ki takleef</button>
+      <button class="quick-chip" data-msg="Skin pe daane / kharish / rash aa gayi hai (skin rash or itching)">🩹 Skin
+        rash / kharish</button>
+      <button class="quick-chip" data-msg="Ulti / dast ho rahe hain (vomiting or diarrhoea)">🤮 Ulti / dast</button>
+      <button class="quick-chip" data-msg="Bahut kamzori / chakkar aa rahe hain (weakness or dizziness)">😵 Kamzori /
+        chakkar</button>
+      <button class="quick-chip" data-msg="Mujhe kuch aur batana hai…">💬 Kuch aur…</button>
+    </div>
+  </div>
+
+  <div id="inputBar" class="chat-input-bar">
+    <input id="chatInput" type="text" placeholder="Yahan likhein — body part aur takleef batayein…"
+      autocomplete="off" />
+    <button id="voiceBtn" class="voice-btn" type="button" aria-label="Start voice input"
+      title="Speak your symptoms">🎙️</button>
+    <button id="sendBtn" class="chat-send-btn">Send</button>
+  </div>
+  <div class="voice-controls" aria-label="Voice controls">
+    <button id="voiceReplyBtn" class="voice-reply-btn" type="button" aria-pressed="true"
+      title="Turn AI voice replies on or off">🔊 Voice Reply: ON</button>
+    <span id="voiceStatus" class="voice-status" aria-live="polite"></span>
+  </div>
+</div>
+
+<style>
+  /* ── Quick-tap symptom chips ────────────────────────── */
+  .quick-chips-bar {
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    animation: fadeIn .4s ease;
+  }
+
+  .quick-chips-label {
+    font-size: 11px;
+    color: var(--slate);
+    font-weight: 600;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  .quick-chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .quick-chip {
+    padding: 7px 13px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+
+  .quick-chip:hover {
+    background: var(--teal-faint);
+    border-color: var(--teal);
+    color: var(--teal-dark);
+  }
+
+  .voice-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 7px;
+    min-height: 28px;
+  }
+
+  .voice-reply-btn {
+    border: 1.5px solid var(--border);
+    background: #fff;
+    color: var(--navy);
+    border-radius: 999px;
+    padding: 6px 11px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+
+  .voice-reply-btn:hover {
+    border-color: var(--teal);
+    color: var(--teal-dark);
+  }
+
+  .voice-reply-btn.off {
+    opacity: .75;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px)
+    }
+
+    to {
+      opacity: 1;
+      transform: none
+    }
+  }
+</style>
+
+<script>
+  // Load coordinates already captured on index.html — no second GPS prompt needed.
+  // If the patient granted GPS on the home screen, those coords are in sessionStorage.
+  // If they used the map picker, those coords are there too.
+  // Only try a fresh GPS request if we have nothing at all.
+  let patientLat = parseFloat(sessionStorage.getItem("patientLat")) || null;
+  let patientLng = parseFloat(sessionStorage.getItem("patientLng")) || null;
+
+  if (!patientLat || !patientLng) {
+    const isSecure = location.protocol === "https:"
+      || location.hostname === "localhost"
+      || location.hostname === "127.0.0.1";
+    if (isSecure && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          patientLat = pos.coords.latitude;
+          patientLng = pos.coords.longitude;
+          sessionStorage.setItem("patientLat", patientLat);
+          sessionStorage.setItem("patientLng", patientLng);
+        },
+        err => console.log("GPS not available on triage page:", err.message),
+        { timeout: 10000, maximumAge: 30000, enableHighAccuracy: true }
+      );
+    }
+  }
+  const messagesEl = document.getElementById("chatMessages");
+  const inputEl = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const voiceBtn = document.getElementById("voiceBtn");
+  const voiceReplyBtn = document.getElementById("voiceReplyBtn");
+  const voiceStatus = document.getElementById("voiceStatus");
+  const bannerEl = document.getElementById("emergencyBanner");
+  const quickChips = document.getElementById("quickChips");
+  let isLoading = false;
+  let chipsHidden = false;
+  let recognition = null;
+  let isListening = false;
+  let voiceReplyEnabled = localStorage.getItem("triage_voice_reply") !== "off";
+  let pendingVoiceQuestion = false;
+
+
+  let recognitionLocaleIndex = 0;
+  let retryRecognition = false;
+
+  // Roman-script Hinglish is usually recognized more reliably by the India-English model.
+  const recognitionLanguages = {
+    en: ["en-IN"],
+    hi: ["en-IN", "hi-IN"],
+    mr: ["mr-IN", "en-IN"]
+  };
+  const speechLanguages = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" };
+  const selectedLanguage = localStorage.getItem("triage_language") || "en";
+
+  function updateVoiceReplyButton() {
+    voiceReplyBtn.textContent = voiceReplyEnabled
+      ? "🔊 Voice Reply: ON"
+      : "🔇 Voice Reply: OFF";
+    voiceReplyBtn.classList.toggle("off", !voiceReplyEnabled);
+    voiceReplyBtn.setAttribute("aria-pressed", String(voiceReplyEnabled));
+  }
+
+  function speak(text, onEnd) {
+    if (!voiceReplyEnabled || !("speechSynthesis" in window) || !text) {
+      if (typeof onEnd === "function") onEnd();
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(String(text));
+    const language = speechLanguages[selectedLanguage] || "en-IN";
+    utterance.lang = language;
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => v.lang && v.lang.toLowerCase() === language.toLowerCase())
+      || voices.find(v => v.lang && v.lang.toLowerCase().startsWith(language.slice(0, 2).toLowerCase()));
+    if (preferred) utterance.voice = preferred;
+    if (typeof onEnd === "function") utterance.onend = onEnd;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  updateVoiceReplyButton();
+  voiceReplyBtn.addEventListener("click", () => {
+    voiceReplyEnabled = !voiceReplyEnabled;
+    localStorage.setItem("triage_voice_reply", voiceReplyEnabled ? "on" : "off");
+    updateVoiceReplyButton();
+    if (!voiceReplyEnabled && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  });
+
+  function setupVoiceRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      voiceBtn.disabled = true;
+      voiceBtn.title = "Voice input is not supported in this browser";
+      voiceStatus.textContent = "Voice input is unavailable in this browser.";
+      return;
+    }
+    const locales = recognitionLanguages[selectedLanguage] || recognitionLanguages.en;
+    recognitionLocaleIndex = 0;
+    recognition = new SpeechRecognition();
+    recognition.lang = locales[recognitionLocaleIndex];
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 3;
+    recognition.onstart = () => {
+      isListening = true;
+      voiceBtn.classList.add("listening");
+      voiceBtn.setAttribute("aria-label", "Stop voice input");
+      voiceStatus.textContent = selectedLanguage === "hi"
+        ? "Listening for Hinglish… speak naturally in Hindi and English."
+        : "Listening… speak naturally.";
+    };
+    recognition.onresult = event => {
+      const transcript = event.results[0][0].transcript.trim();
+      inputEl.value = transcript;
+      pendingVoiceQuestion = true;
+      voiceStatus.textContent = "Voice captured. Sending to CareRoute AI…";
+      setTimeout(() => {
+        if (pendingVoiceQuestion && transcript) {
+          pendingVoiceQuestion = false;
+          sendMessage(transcript, true);
+        }
+      }, 80);
+    };
+    recognition.onerror = event => {
+      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+        voiceStatus.textContent = "Microphone permission was denied. Allow it in browser settings and try again.";
+        return;
+      }
+      if ((event.error === "no-speech" || event.error === "language-not-supported")
+        && recognitionLocaleIndex < locales.length - 1) {
+        recognitionLocaleIndex += 1;
+        retryRecognition = true;
+        isListening = false;
+        voiceStatus.textContent = "Trying the Hindi voice model… please speak again.";
+        return;
+      }
+      voiceStatus.textContent = "Could not hear that. Please try again or type instead.";
+    };
+    recognition.onend = () => {
+      if (retryRecognition) {
+        retryRecognition = false;
+        recognition.lang = locales[recognitionLocaleIndex];
+        try {
+          recognition.start();
+        } catch (error) {
+          voiceStatus.textContent = "Could not restart the microphone. Please try again.";
+        }
+        return;
+      }
+      isListening = false;
+      voiceBtn.classList.remove("listening");
+      voiceBtn.setAttribute("aria-label", "Start voice input");
+      recognitionLocaleIndex = 0;
+    };
+  }
+
+  voiceBtn.addEventListener("click", () => {
+    if (!recognition) return;
+    if (isListening) recognition.stop();
+    else {
+      try {
+        recognition.start();
+      } catch (error) {
+        voiceStatus.textContent = "Microphone is busy. Wait a moment and try again.";
+      }
+    }
+  });
+  setupVoiceRecognition();
+
+  function esc(str) {
+    const d = document.createElement("div"); d.textContent = str == null ? "" : String(str); return d.innerHTML;
+  }
+
+  function hideChips() {
+    if (!chipsHidden) {
+      quickChips.style.display = "none";
+      chipsHidden = true;
+    }
+  }
+
+  function addMessage(role, text) {
+    const row = document.createElement("div");
+    row.className = "msg-row " + (role === "user" ? "user" : "");
+    let avatar = "";
+    if (role !== "user") {
+      avatar = `<div class="msg-bubble-avatar ${role === "emergency" ? "emergency" : ""}">${role === "emergency" ? "🚨" : "🤖"}</div>`;
+    }
+    row.innerHTML = `${avatar}<div class="msg-bubble ${role}">${esc(text)}</div>`;
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function showTyping() {
+    const row = document.createElement("div");
+    row.className = "msg-row";
+    row.id = "typingRow";
+    row.innerHTML = `<div class="msg-bubble-avatar">🤖</div>
+      <div class="msg-bubble assistant"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+  function hideTyping() { const r = document.getElementById("typingRow"); if (r) r.remove(); }
+
+  function showEmergency(data) {
+    const isCrisis = data.severity === "CRISIS";
+    bannerEl.innerHTML = isCrisis
+      ? `<div class="emergency-banner crisis">
+          <h3>💙 You're not alone — support is available</h3>
+          <p style="font-size:14px;line-height:1.6;margin-bottom:10px;">${esc(data.message)}</p>
+          <div class="emergency-call">☎️ ${esc(data.action)}</div>
+        </div>`
+      : `<div class="emergency-banner">
+          <h3>🔴 ${esc(data.severity)} — ${esc(data.condition)}</h3>
+          <p style="font-size:14px;line-height:1.6;margin-bottom:10px;">${esc(data.message)}</p>
+          <div class="emergency-call">☎️ ${esc(data.action)}</div>
+          ${data.call_ambulance ? '<div style="text-align:center;margin-top:10px;font-size:20px;font-weight:900;color:var(--red);">📞 CALL 108 NOW</div>' : ""}
+        </div>`;
+    if (!isCrisis) document.getElementById("inputBar").style.display = "none";
+  }
+
+  async function sendMessage(overrideText, fromVoice = false) {
+    const text = overrideText || inputEl.value.trim();
+    if (!text || isLoading) return;
+    inputEl.value = "";
+    hideChips();
+    addMessage("user", text);
+    isLoading = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    try {
+      const res = await fetch("/api/triage/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: text,
+          sid: localStorage.getItem("triage_sid"),
+          patient_lat: patientLat,
+          patient_lng: patientLng
+        })
+      });
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Server Error:", errorText);
+        throw new Error(errorText);
+      }
+
+      const data = await res.json();
+      hideTyping();
+
+      if (data.type === "emergency") {
+        showEmergency(data);
+        addMessage("emergency", data.message);
+        if (fromVoice) speak(data.message);
+      } else if (data.type === "complete") {
+        addMessage("assistant", data.response);
+        sessionStorage.setItem("triage_result", JSON.stringify(data.triage));
+        sessionStorage.setItem("clinics", JSON.stringify(data.clinics));
+        sessionStorage.setItem("location_warnings", JSON.stringify(data.location_warnings || []));
+        sessionStorage.setItem("routing_reason", data.routing_reason || "");
+        sessionStorage.setItem("rag_context", data.rag_context || "");
+        if (fromVoice && voiceReplyEnabled && "speechSynthesis" in window) {
+          speak(data.response, () => {
+            window.location.href = data.review_url;
+          });
+        } else {
+          setTimeout(() => window.location.href = data.review_url, 1600);
+        }
+      } else {
+        addMessage("assistant", data.response || data.error || "Sorry, something went wrong.");
+        if (fromVoice) speak(data.response || data.error);
+      }
+    } catch (err) {
+
+      hideTyping();
+
+      console.error(err);
+
+      addMessage(
+        "assistant",
+        "Server Error:\n\n" + err.message
+      );
+    }
+
+    isLoading = false;
+    sendBtn.disabled = false;
+    inputEl.focus();
+  }
+
+  // Quick chip taps
+  document.querySelectorAll(".quick-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const msg = btn.dataset.msg;
+      if (msg === "💬 Kuch aur…") {
+        inputEl.focus();
+        hideChips();
+      } else {
+        sendMessage(msg);
+      }
+    });
+  });
+
+  sendBtn.addEventListener("click", () => sendMessage());
+  inputEl.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const firstMsg = localStorage.getItem("first_msg");
+    if (firstMsg) {
+      addMessage("assistant", firstMsg);
+      localStorage.removeItem("first_msg");
+    } else {
+      window.location.href = "/";
+    }
+  });
+</script>
+{% endblock %}
